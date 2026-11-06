@@ -3,14 +3,19 @@ media:
   output: /media
 content:
   - name: posts
-    label: Posts
+    label: Portfolio
     type: collection
     path: src/posts
     fields:
       - name: title
+        label: Titel
         type: string
       - name: body
+        label: Inhoud
         type: rich-text
+      - name: date
+        label: Publicatiedatum
+        type: date
   - name: site
     label: Site settings
     type: file
