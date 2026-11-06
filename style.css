@@ -1,0 +1,363 @@
+/* Studio Lijn — één stylesheet voor de hele site.
+   Layout: linkse uitlijning, smalle leeskolom, beeld in een raster met wisselende verhoudingen.
+   Geen webfonts: systeemlettertypes laden direct en vragen geen externe verzoeken (ook beter voor privacy). */
+
+:root {
+  --paper: #f6f7f8;
+  --surface: #ffffff;
+  --ink: #15171c;
+  --muted: #5a606d;
+  --line: #dcdfe5;
+  --accent: #2443c4;
+  --accent-ink: #ffffff;
+  --tile-1: #d8deee;
+  --tile-2: #e8e0d3;
+  --tile-3: #cfe0db;
+  --tile-4: #e7d7dd;
+
+  --font-display: "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: clamp(1.6rem, 3vw, 2.1rem);
+  --step-3: clamp(2.3rem, 6vw, 4.4rem);
+
+  --space: clamp(3rem, 8vw, 6.5rem);
+  --radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111318; --surface: #181b22; --ink: #eceef2; --muted: #9ba1ae;
+    --line: #2a2e38; --accent: #93a6ff; --accent-ink: #0e1220;
+    --tile-1: #1e2436; --tile-2: #2a2620; --tile-3: #1a2a27; --tile-4: #2c2127;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111318; --surface: #181b22; --ink: #eceef2; --muted: #9ba1ae;
+  --line: #2a2e38; --accent: #93a6ff; --accent-ink: #0e1220;
+  --tile-1: #1e2436; --tile-2: #2a2620; --tile-3: #1a2a27; --tile-4: #2c2127;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: var(--step-3); letter-spacing: -0.025em; }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+p { margin: 0; }
+
+.wrap {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--surface); padding: 0.5rem 1rem; z-index: 10; }
+
+/* Kop en navigatie */
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.logo span { color: var(--accent); }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.nav a { text-decoration: none; color: var(--muted); font-size: 0.95rem; }
+.nav a:hover { color: var(--ink); }
+.nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -1px 0 currentColor; }
+
+/* Algemene bouwstenen */
+main { display: block; }
+.section { padding-block: var(--space); }
+.section + .section { padding-top: 0; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--muted); max-width: 38rem; }
+
+.stack { display: grid; gap: 1.25rem; }
+
+.button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.button--primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.button--primary:hover { color: var(--accent-ink); filter: brightness(1.1); }
+.button:not(.button--primary):hover { border-color: var(--accent); }
+
+.section-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Hero */
+.hero { padding-block: var(--space) calc(var(--space) * 0.75); }
+.hero .stack { max-width: 52rem; gap: 1.75rem; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+
+/* Portfoliokaarten */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 2.5rem 1.5rem;
+}
+.work { display: grid; gap: 0.75rem; text-decoration: none; }
+.work:hover h3 { color: var(--accent); }
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
+  border-radius: var(--radius);
+  background: var(--tile-1);
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+.work:hover .thumb { transform: translateY(-3px); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb--2 { background: var(--tile-2); }
+.thumb--3 { background: var(--tile-3); }
+.thumb--4 { background: var(--tile-4); }
+.thumb .placeholder {
+  position: absolute; left: 0.9rem; bottom: 0.75rem;
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em;
+}
+.work h3 { font-size: 1.25rem; transition: color 0.2s; }
+.meta { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+
+/* Lijst met diensten / stappen */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 2rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+.columns > * { display: grid; gap: 0.5rem; align-content: start; min-width: 0; }
+.columns p { color: var(--muted); }
+.steps { counter-reset: step; }
+.steps > *::before {
+  counter-increment: step;
+  content: "Stap " counter(step);
+  font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent);
+}
+
+/* Call to action-band */
+.cta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.cta h2 { max-width: 30rem; }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: 2rem 1.5rem; }
+.person { display: grid; gap: 0.6rem; }
+.avatar {
+  aspect-ratio: 1; max-width: 100%;
+  border-radius: var(--radius);
+  background: var(--tile-1);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 3rem; color: var(--muted);
+}
+.person:nth-child(2) .avatar { background: var(--tile-3); }
+.person:nth-child(3) .avatar { background: var(--tile-4); }
+.person p { color: var(--muted); font-size: 0.95rem; }
+
+/* Twee kolommen: tekst + zijkant */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 760px) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+/* Formulier */
+.form { display: grid; gap: 1.25rem; }
+.field { display: grid; gap: 0.4rem; }
+.field label { font-size: 0.95rem; }
+.field input, .field textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  width: 100%;
+}
+.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+.field textarea { min-height: 9rem; resize: vertical; }
+.form small { color: var(--muted); font-size: 0.85rem; }
+.form button { justify-self: start; font: inherit; cursor: pointer; }
+.hp { position: absolute; left: -9999px; }
+
+.contact-list { display: grid; gap: 1.5rem; }
+.contact-list dt { margin-bottom: 0.2rem; }
+.contact-list dd { margin: 0; }
+.contact-list address { font-style: normal; }
+
+.hero + .section { padding-top: 0; }
+.lead p + p { margin-top: 1rem; }
+
+/* Projectslider (portfoliopagina) */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.slider-head { margin-bottom: 1.25rem; }
+.slider-head h2 { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; }
+
+.slider-track {
+  /* De rij loopt tot aan de rand van het scherm, maar de eerste tegel lijnt uit met de rest van de pagina. */
+  --rand: max(16px, calc((100% - 72rem) / 2 + 16px));
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--rand);
+  scrollbar-width: none;
+  padding-block: 0.25rem 1rem;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track:focus-visible { outline-offset: -2px; }
+
+.slider-list {
+  list-style: none; margin: 0;
+  display: flex; gap: 1.25rem;
+  width: max-content;
+  padding-left: max(var(--rand), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--rand), env(safe-area-inset-right, 0px));
+}
+
+.tile {
+  position: relative;
+  scroll-snap-align: start;
+  width: min(78vw, 21rem);
+  display: grid;
+  grid-template-rows: 1.25rem auto auto 1.75rem 3.2em auto 1fr;
+  gap: 0.6rem;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.tile-badge span {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+}
+.tile-title { font-size: 1.6rem; }
+.tile-image { display: block; aspect-ratio: 9 / 11; margin-block: 0.75rem 0.25rem; }
+.tile-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.swatches { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.4rem; align-items: center; height: 100%; }
+.swatches li {
+  width: 0.85rem; height: 0.85rem; border-radius: 50%;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.tile-copy { font-weight: 600; line-height: 1.4; }
+.tile-meta { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+.tile-footer { align-self: end; padding-top: 0.75rem; }
+
+.slider-nav { display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 0.5rem; }
+.slider-nav[hidden] { display: none; }
+.slider-button {
+  width: 2.75rem; height: 2.75rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.slider-button svg { width: 1.6rem; height: 1.6rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.slider-button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.slider-button:disabled { opacity: 0.35; cursor: default; }
+
+/* Projectpagina */
+.gallery { display: grid; gap: 1.5rem; }
+.gallery img { border-radius: var(--radius); width: 100%; }
+.back { font-size: 0.95rem; }
+
+/* Lange teksten (juridische pagina's) */
+.prose { max-width: 42rem; display: grid; gap: 1rem; }
+.prose h2 { font-size: 1.45rem; margin-top: 1.5rem; }
+.prose ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+.notice {
+  font-size: 0.92rem;
+  padding: 0.9rem 1rem;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+.updated { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+
+/* Voet */
+.site-footer { margin-top: var(--space); }
+.site-footer .wrap {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem;
+  padding-block: 2rem 2.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+.company { font-family: var(--font-mono); font-size: 0.78rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

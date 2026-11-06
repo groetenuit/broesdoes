@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact · Studio Lijn</title>
+  <meta name="description" content="Neem contact op met Studio Lijn in Brussel.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#inhoud">Naar de inhoud</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">Studio <span>Lijn</span></a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Werk</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    <section class="hero">
+      <div class="wrap">
+        <div class="stack">
+          <p class="label">Contact</p>
+          <h1>Vertel ons over je project.</h1>
+          <p class="lead">We antwoorden binnen twee werkdagen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <!-- Werkt meteen op Netlify (data-netlify). Elders: vervang door een formulierdienst zoals Formspree. -->
+        <form class="form" name="contact" method="POST" action="bedankt.html" data-netlify="true" netlify-honeypot="website">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label for="website">Laat dit veld leeg</label><input id="website" name="website" tabindex="-1" autocomplete="off"></p>
+          <div class="field">
+            <label for="naam">Naam</label>
+            <input id="naam" name="naam" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mailadres</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="bericht">Je vraag of project</label>
+            <textarea id="bericht" name="bericht" required></textarea>
+          </div>
+          <small>We gebruiken je gegevens alleen om je te antwoorden. Lees meer in onze <a href="privacy.html">privacyverklaring</a>.</small>
+          <button class="button button--primary" type="submit">Verstuur bericht</button>
+        </form>
+
+        <dl class="contact-list">
+          <div><dt class="label">E-mail</dt><dd>hallo@studiolijn.be</dd></div>
+          <div><dt class="label">Telefoon</dt><dd>+32 2 123 45 67</dd></div>
+          <div><dt class="label">Adres</dt><dd><address>Vlaamsesteenweg 12<br>1000 Brussel</address></dd></div>
+          <div><dt class="label">Bereikbaar</dt><dd>Maandag tot vrijdag, 9 tot 17 uur</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="stack" style="gap:0.3rem">
+        <span>© 2026 Studio Lijn BV · Vlaamsesteenweg 12, 1000 Brussel</span>
+        <span class="company">Ondernemingsnummer BE 0123.456.789 · RPR Brussel</span>
+      </div>
+      <ul>
+        <li><a href="voorwaarden.html">Algemene voorwaarden</a></li>
+        <li><a href="privacy.html">Privacyverklaring</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
