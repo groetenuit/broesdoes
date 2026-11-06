@@ -16,6 +16,12 @@ content:
       - name: date
         label: Publicatiedatum
         type: date
+      - name: cover
+        label: Cover image
+        type: image
+        options:
+        media: images
+        path: public/images/posts      
   - name: site
     label: Site settings
     type: file
