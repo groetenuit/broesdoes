@@ -1,5 +1,6 @@
 ---
-title: Pagina 1 van BroesDoes
+title: Hé, lekker beest
+date: 2026-11-06
 ---
 # Titel H1 test
 
