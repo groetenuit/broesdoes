@@ -34,8 +34,8 @@ content:
           - { name: title, label: Pagina Titel, type: string, required: true }
           - { name: description, label: Description, type: string, required: true }
           - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
-          - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image } # <--- HIERMEE PAS JE DE AFBEELDING AAN VIA PAGES CMS
-          - { name: og_image, label: Uitgelichte Afbeelding, type: image } # <--- Toegevoegd
+          -- { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image } # <--- HIERMEE PAS JE DE AFBEELDING AAN VIA PAGES CMS
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
           - { name: body, label: Inhoud, type: rich-text }         
 
       - { name: privacy, label: Privacy Policy, path: privacy.md }
