@@ -1,7 +1,7 @@
 ---
 title: Contact
 description: Broes Droes houdt van foto en video
-layout: home
+layout: contact-layout
 featured_image: /images/dummy.webp
 og_image: /images/portret-hond-billie.webp
 ---
