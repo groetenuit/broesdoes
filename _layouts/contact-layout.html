@@ -2,24 +2,16 @@
 layout: default
 ---
 <main id="inhoud">
-    <section class="t-page grid12">
-      <h1>Contact</h1>
-      <div class="t-intro"><p>Vertel ons over je project. We antwoorden binnen twee werkdagen.</p></div>
-      <div class="t-side">
-        <p>Broes Does<br>Kalendijk 21<br>9200 Dendermonde</p><br>
-        <p>+32 2 123 45 67<br>hallo@studiolijn.be</p><br>
-        <p class="f-muted">Maandag tot vrijdag, 9 tot 17 uur</p>
+    <section class="p-hero grid12">
+      <div class="ph ph--3  " style="view-transition-name: b-atelier-moreels; view-transition-class: beeld"><span class="ph-label">Atelier Moreels · hoofdbeeld</span></div>
+      <div class="p-hero-text">
+        <h1>Atelier Moreels</h1>
+        <dl class="facts">
+          <div><dt>Soort</dt><dd>Web</dd></div>
+          <div><dt>Opdracht</dt><dd>Website en fotografie</dd></div>
+          <div><dt>Plaats</dt><dd>Gent</dd></div>
+          <div><dt>Status</dt><dd>Online sinds 2025</dd></div>
+        </dl>
       </div>
-      <!-- Werkt meteen op Netlify (data-netlify). Elders: vervang door een formulierdienst of een PHP-script. -->
-      <form class="form" name="contact" method="POST" action="bedankt.html" data-netlify="true" netlify-honeypot="website">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hp"><label for="website">Laat dit veld leeg</label><input id="website" name="website" tabindex="-1" autocomplete="off"></p>
-        <div class="field"><label for="naam">Naam</label><input id="naam" name="naam" autocomplete="name" required=""></div>
-        <div class="field"><label for="email">E-mailadres</label><input id="email" name="email" type="email" autocomplete="email" required=""></div>
-        <div class="field"><label for="bericht">Je vraag of project</label><textarea id="bericht" name="bericht" required=""></textarea></div>
-        <small>We gebruiken je gegevens alleen om je te antwoorden. Lees meer in onze <a href="privacy.html"><u>privacyverklaring</u></a>.</small>
-        <button class="pill" type="submit">Verstuur</button>
-      </form>
     </section>
   </main>
-
