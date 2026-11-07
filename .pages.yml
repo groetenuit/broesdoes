@@ -22,14 +22,14 @@ content:
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: body, label: Inhoud, type: rich-text }
 
-  # 2. Dynamische portfoliocollectie (hier kun je wél nieuwe pagina's aanmaken!)
+# 2. Dynamische portfoliocollectie (hier kun je wél nieuwe pagina's aanmaken!)
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
     path: _werk/
-    format: yaml-frontmatter
     extension: md
-    filename: "{slug}"
+    filename: "{slug}.md" # <--- De .md toevoeging lost de lege extensie-fout op
+    format: yaml-frontmatter
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
