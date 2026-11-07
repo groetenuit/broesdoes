@@ -1,6 +1,6 @@
 media:
-  output: images
-  path: /images
+  input: images
+  output: /images
 
 content:
   # 1. Vaste algemene pagina's van de site (kunnen niet worden aangemaakt/verwijderd, wel bewerkt)
