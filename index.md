@@ -1,5 +1,6 @@
 ---
 title: Index
+description: Broes Droes houdt van foto en video
 layout: default
 ---
 # Welkom
@@ -12,5 +13,5 @@ Hieronder vindt u al onze projecten. Dit overzicht wordt automatisch bijgewerkt 
 
 - {% for project in site.werk %}
 - [{{ project.title }}]({{ project.url | relative_url }})
--  {% endfor %}
+- {% endfor %}
 
