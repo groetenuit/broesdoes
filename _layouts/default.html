@@ -27,9 +27,24 @@
         {{ content }}
     </main>
 
-    <footer>
-        <p>&copy; {{ 'now' | date: "%Y" }} - Alle rechten voorbehouden.</p>
-        <a href="/privacy.html">Privacy</a> | <a href="/voorwaarden.html">Voorwaarden</a>
-    </footer>
+<footer class="site-footer grid12">
+    <svg class="f-mark" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M2 6h68M2 20h44M2 34h24"/></svg>
+    <div class="f-col1">
+      Beroes Does<br>Kalendijk 21, 9200 Dendermonde<br>
+      <span class="f-muted">Ondernemingsnummer BE 0123.456.789 · RPR Brussel</span>
+    </div>
+    <div class="f-col2">
+      +32 2 123 45 67<br>hello@broesdoes.be<br>@studiolijn
+    </div>
+    <div class="f-col3">
+      <a href="voorwaarden.html">Algemene voorwaarden</a><br>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
+  </footer>
+
+  <nav class="bottom-bar grid12" aria-label="Projecten">
+    <a class="bb-all" href="projecten.html">Alle projecten</a>
+    <a class="bb-contact" href="contact.html">Contact</a>
+  </nav>
 </body>
 </html>
