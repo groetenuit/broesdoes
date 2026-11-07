@@ -7,4 +7,6 @@ og_image: /images/portret-hond-billie.webp
 ---
 # Contact
 
-Hoi, ik ben Broesie. Sommigen beweren dat ik met een fototoestel in mijn handen geboren ben, anderen dat ik het gewoon niet kan wegleggen. De waarheid ligt ergens in het midden. Wat vaststaat: ik hou van verhalen, van mensen, plekken en momenten die je raken.
+Hallo, ik ben Broes. Ik woon in Dendermonde. Vanuit mijn hometown stiefel ik met plezier van hot naar her op zoek naar mooie beelden en leuke verhalen. Ik studeer aan het RITC in Brussel.
+
+Ik kijk altijd uit naar nieuwe, fijne verhalen. Mail me gerust op [hello@broesdoes.be](mailto:hello@broesdoes.be) voor een kennismaking.
