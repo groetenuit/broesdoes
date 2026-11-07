@@ -4,9 +4,6 @@ email: hello@broesdoes.be
 description: >-
   Creatieve projecten met een sterke focus op architectuur, cultuur en ambacht.
 
-# URL Instellingen (Cruciaal voor Open Graph afbeeldingen!)
-url: "https://github.io"     # <--- Vervang dit door je eigen domeinnaam of GitHub-URL
-baseurl: "/site-v2"                     # <--- De mapnaam van je GitHub-repository (laat leeg "" als dit je hoofdsite is)
 
 # Activeer de dynamische portfoliomap (_werk)
 collections:
