@@ -41,7 +41,7 @@ content:
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }         
 
-  # 3. DYNAMISCHE PORTFOLIOCOLLECTIE (Mijn Werk)
+   # 3. DYNAMISCHE PORTFOLIOCOLLECTIE (Mijn Werk)
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
@@ -51,7 +51,15 @@ content:
     format: yaml-frontmatter
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
+      - { name: project_year, label: Project Jaar (bijv. 2026), type: string, required: true }
+      - { name: project_location, label: Plaats / Stad, type: string, required: true }
+      - name: project_type
+        label: Soort Project (Type)
+        type: select
+        options: ["Campagne", "Editoriaal", "Identiteit", "Signalisatie", "Verpakking", "Web"]
+        required: true
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Project Omschrijving, type: rich-text }
+
