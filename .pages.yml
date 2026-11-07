@@ -1,27 +1,33 @@
 media:
-  input: src/media
-  output: /media
+  output: images
+  path: /images
+
+# We definiëren de losse pagina's als losse Markdown-bestanden
 content:
-  - name: posts
-    label: Portfolio
+  - name: pages
+    label: Pagina's
     type: collection
-    path: src/posts
+    path: /
+    format: yaml-frontmatter
+    exclude: ["README.md", "LICENSE"]
     fields:
       - name: title
-        label: Titel
+        label: Pagina Titel
         type: string
+        required: true
+      - name: layout
+        label: Layout (Laat op default staan)
+        type: string
+        default: default
+        hidden: true
       - name: body
-        label: Inhoud
+        label: Inhoud van de pagina
         type: rich-text
-      - name: date
-        label: Publicatiedatum
-        type: date
       - name: cover
         label: Cover image
         type: image
         options:
         media: images
-        path: public/images/posts      
   - name: site
     label: Site settings
     type: file
