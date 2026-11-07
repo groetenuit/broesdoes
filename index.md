@@ -1,6 +1,6 @@
 ---
 title: Home
 description: kldoeldkl
-layout: default
+layout: home
 ---
 Homepage
