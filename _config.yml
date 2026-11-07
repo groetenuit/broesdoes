@@ -1,0 +1,17 @@
+# Algemene Website Instellingen
+title: Atelier Moreels
+email: info@ateliermoreels.be
+description: >-
+  Creatieve projecten met een sterke focus op architectuur, cultuur en ambacht.
+
+# Activeer de dynamische portfoliomap (_werk)
+collections:
+  werk:
+    output: true
+    permalink: /werk/:path.html
+
+# Zorg ervoor dat Pages CMS configuratiebestanden niet per ongeluk live geüpload worden
+exclude:
+  - .pages.yml
+  - README.md
+  - LICENSE
