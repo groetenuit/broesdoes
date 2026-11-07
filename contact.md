@@ -2,6 +2,7 @@
 title: Contact
 description: De contactpagina BroesDoes
 layout: contact-layout
+og_image: /images/portret-hond-billie.webp
 ---
 # Contact
 
