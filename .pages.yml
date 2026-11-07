@@ -3,7 +3,7 @@ media:
   path: /images
 
 content:
-  # 1. De vaste algemene pagina's van de site
+  # 1. Vaste algemene pagina's van de site (kunnen niet worden aangemaakt/verwijderd, wel bewerkt)
   - name: pages
     label: Algemene Pagina's
     type: collection
@@ -22,19 +22,14 @@ content:
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: body, label: Inhoud, type: rich-text }
 
-  # 2. De specifieke werk- / projectenpagina's
+  # 2. Dynamische portfoliocollectie (hier kun je wél nieuwe pagina's aanmaken!)
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
-    path: /
+    path: _werk/
     format: yaml-frontmatter
-    files:
-      - { name: atelier-moreels, label: Werk: Atelier Moreels, path: werk-atelier-moreels.md }
-      - { name: kaaitheater, label: Werk: Kaaitheater, path: werk-kaaitheater.md }
-      - { name: brouwerij-zennevallei, label: Werk: Brouwerij Zennevallei, path: werk-brouwerij-zennevallei.md }
-      - { name: bakkerij-delvaux, label: Werk: Bakkerij Delvaux, path: werk-bakkerij-delvaux.md }
-      - { name: stad-mechelen, label: Werk: Stad Mechelen, path: werk-stad-mechelen.md }
-      - { name: uitgeverij-vlek, label: Werk: Uitgeverij Vlek, path: werk-uitgeverij-vlek.md }
+    extension: md
+    filename: "{slug}"
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
