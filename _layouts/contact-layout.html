@@ -1,16 +1,25 @@
 ---
 layout: default
 ---
-<div class="contact-grid" style="display: flex; gap: 40px;">
-    <!-- Linkerkolom: Inhoud uit contact.md -->
-    <div class="contact-form-column" style="flex: 2;">
-        {{ content }}
-    </div>
+<main id="inhoud">
+    <section class="t-page grid12">
+      <h1>Contact</h1>
+      <div class="t-intro"><p>Vertel ons over je project. We antwoorden binnen twee werkdagen.</p></div>
+      <div class="t-side">
+        <p>Broes Does<br>Kalendijk 21<br>9200 Dendermonde</p><br>
+        <p>+32 2 123 45 67<br>hallo@studiolijn.be</p><br>
+        <p class="f-muted">Maandag tot vrijdag, 9 tot 17 uur</p>
+      </div>
+      <!-- Werkt meteen op Netlify (data-netlify). Elders: vervang door een formulierdienst of een PHP-script. -->
+      <form class="form" name="contact" method="POST" action="bedankt.html" data-netlify="true" netlify-honeypot="website">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp"><label for="website">Laat dit veld leeg</label><input id="website" name="website" tabindex="-1" autocomplete="off"></p>
+        <div class="field"><label for="naam">Naam</label><input id="naam" name="naam" autocomplete="name" required=""></div>
+        <div class="field"><label for="email">E-mailadres</label><input id="email" name="email" type="email" autocomplete="email" required=""></div>
+        <div class="field"><label for="bericht">Je vraag of project</label><textarea id="bericht" name="bericht" required=""></textarea></div>
+        <small>We gebruiken je gegevens alleen om je te antwoorden. Lees meer in onze <a href="privacy.html"><u>privacyverklaring</u></a>.</small>
+        <button class="pill" type="submit">Verstuur</button>
+      </form>
+    </section>
+  </main>
 
-    <!-- Rechterkolom: Vaste adresgegevens -->
-    <div class="contact-info-column" style="flex: 1; background: #f9f9f9; padding: 20px;">
-        <h3>Onze Gegevens</h3>
-        <p>Dorpsstraat 42<br>9200 Dendermonde</p>
-        <p>info@ateliermoreels.be</p>
-    </div>
-</div>
