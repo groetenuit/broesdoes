@@ -2,17 +2,29 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/js/projecten.js" defer></script>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a> | <a href="/about.html">Over ons</a>
-    </nav>
-    
-    <!-- Hier injecteert Jekyll de Markdown-tekst uit Pages CMS -->
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/projecten.html">Projecten</a>
+            <a href="/over-ons.html">Over ons</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
     <main>
+        <!-- Pages CMS vult deze content automatisch in -->
         {{ content }}
     </main>
+
+    <footer>
+        <p>&copy; {{ 'now' | date: "%Y" }} - Alle rechten voorbehouden.</p>
+        <a href="/privacy.html">Privacy</a> | <a href="/voorwaarden.html">Voorwaarden</a>
+    </footer>
 </body>
 </html>
-
