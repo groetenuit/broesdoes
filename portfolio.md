@@ -3,6 +3,7 @@ title: Projecten Overzicht
 description: Porftolio
 layout: default
 ---
+Aantal gevonden projecten in de map: {{ site.werk | size }}
 
 <main id="inhoud">
   <section data-index data-view="grid" aria-labelledby="index-titel">
