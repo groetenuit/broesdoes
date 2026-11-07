@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <script src="{{ '/js/projecten.js' | relative_url }}" defer></script>
+
+</head>
+<body>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+  <header class="site-header grid12">
+    <a class="logo-a" href="index.html"><img width="249" height="56" src="images/Broes-Does-animated-logo-2.svg" class="custom-logo" alt="Broes does"></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+        <ul>
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+        </ul></nav>
+  </header>
+    
+    <main>
+        <!-- Pages CMS vult deze content automatisch in -->
+        {{ content }}
+    </main>
+
+<footer class="site-footer grid12">
+    <svg class="f-mark" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M2 6h68M2 20h44M2 34h24"/></svg>
+    <div class="f-col1">
+      BroesDoes ❤ Creative Fair Play. Monteren doet hij in Dendermonde, filmen overal. Mail naar hello@broesdoes.be voor info of samenwerking.
+    </div>
+    <div class="f-col3">
+      <a href="voorwaarden.html">Algemene voorwaarden</a><br>
+      <a href="privacy.html">Privacyverklaring</a>
+    </div>
+  </footer>
+
+  <nav class="bottom-bar grid12" aria-label="Projecten">
+    <a class="bb-all" href="portfolio.html">Alle projecten</a>
+    <a class="bb-contact" href="contact.html">Contact</a>
+  </nav>
+</body>
+</html>
 
