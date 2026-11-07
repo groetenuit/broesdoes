@@ -3,17 +3,19 @@ media:
   output: /images
 
 content:
-  # 1. Vaste algemene pagina's van de site (kunnen niet worden aangemaakt/verwijderd, wel bewerkt)
+  # 1. Vaste algemene pagina's van de site
   - name: pages
     label: Algemene Pagina's
     type: collection
     path: /
     format: yaml-frontmatter
+    extension: md         # <--- Forceert markdown extensie
+    filename: "{slug}.md" # <--- Forceert pure naam zonder datum voor nieuwe pagina's
     files:
       - { name: home, label: Homepagina, path: index.md }
       - { name: over-ons, label: Over Ons, path: over-ons.md }
       - { name: projecten, label: Projecten Overzicht, path: projecten.md }
-      - { name: contact, label: Contact, path: contact.md }
+      - { name: contact, label: Contact, path: contact.md } # <--- Verwijst nu naar contact.md
       - { name: privacy, label: Privacy Policy, path: privacy.md }
       - { name: voorwaarden, label: Algemene Voorwaarden, path: voorwaarden.md }
       - { name: bedankt, label: Bedankpagina, path: bedankt.md }
