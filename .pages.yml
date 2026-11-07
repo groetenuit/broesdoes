@@ -20,13 +20,13 @@ content:
           - { name: title, label: Pagina Titel, type: string, required: true }
           - { name: description, label: Description, type: string, required: true }
           - { name: layout, label: Layout, type: string, default: home, hidden: true }
-          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
           - { name: body, label: Inhoud, type: rich-text }
 
       - { name: over-ons, label: Over Ons, path: over-ons.md }
       - { name: projecten, label: Projecten Overzicht, path: projecten.md }
       
-      # CONTACTPAGINA
+      # CONTACTPAGINA (Nu perfect uitgelijnd met de juiste streepjes)
       - name: contact
         label: Contact
         path: contact.md
@@ -34,8 +34,8 @@ content:
           - { name: title, label: Pagina Titel, type: string, required: true }
           - { name: description, label: Description, type: string, required: true }
           - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
-          -- { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image } # <--- HIERMEE PAS JE DE AFBEELDING AAN VIA PAGES CMS
-      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
+          - { name: featured_image, label: Afbeelding (Linkerkolom), type: image }
+          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
           - { name: body, label: Inhoud, type: rich-text }         
 
       - { name: privacy, label: Privacy Policy, path: privacy.md }
@@ -47,7 +47,7 @@ content:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
-      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
 
   # 2. Dynamische portfoliocollectie
@@ -61,5 +61,6 @@ content:
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
-      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+      - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Project Omschrijving, type: rich-text }
