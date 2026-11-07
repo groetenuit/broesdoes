@@ -4,7 +4,6 @@ email: hello@broesdoes.be
 description: >-
   Creatieve projecten met een sterke focus op architectuur, cultuur en ambacht.
 
-
 # Activeer de dynamische portfoliomap (_werk)
 collections:
   werk:
