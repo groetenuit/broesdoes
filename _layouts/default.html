@@ -10,15 +10,18 @@
 
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/projecten.html">Projecten</a>
-            <a href="/over-ons.html">Over ons</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
-    </header>
-
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+  <header class="site-header grid12">
+    <a class="logo-a" href="index.html">Broes</a>
+    <a class="logo-b" href="index.html" aria-hidden="true" tabindex="-1">Does</a>
+    <nav class="nav" aria-label="Hoofdmenu">
+        <ul>
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+        </ul></nav>
+  </header>
+    
     <main>
         <!-- Pages CMS vult deze content automatisch in -->
         {{ content }}
