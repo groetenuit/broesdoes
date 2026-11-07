@@ -60,7 +60,7 @@ content:
         type: select
         required: true
         options:
-          values: ["Campagne", "Editoriaal", "Identiteit", "Signalisatie", "Verpakking", "Web"] # <--- 'values' activeert de keuzelijst correct
+          values: ["Campagne", "Editoriaal", "Eigen werk"] # <--- 'values' activeert de keuzelijst correct
           
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image }
