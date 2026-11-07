@@ -1,4 +1,0 @@
----
-title: Voorwaarden
-layout: default
----
