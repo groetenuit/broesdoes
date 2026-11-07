@@ -3,13 +3,13 @@ title: Projecten Overzicht
 description: Porftolio
 layout: default
 ---
-Aantal gevonden projecten in de map: {{ site.werk | size }}
-
 <main id="inhoud">
   <section data-index data-view="grid" aria-labelledby="index-titel">
     <div class="index-head grid12">
       <h1 id="index-titel">Alle projecten <span class="f-muted">({{ site.werk.size }})</span></h1>
-      <div class="filters" role="group" aria-label="Filter op soort" hidden>
+      
+      <!-- HIER IS 'hidden' VERWIJDERD -->
+      <div class="filters" role="group" aria-label="Filter op soort">
         <button type="button" class="chip" data-filter="alle" aria-pressed="true">Alle</button>
         <button type="button" class="chip" data-filter="Campagne" aria-pressed="false">Campagne</button>
         <button type="button" class="chip" data-filter="Editoriaal" aria-pressed="false">Editoriaal</button>
@@ -18,7 +18,9 @@ Aantal gevonden projecten in de map: {{ site.werk | size }}
         <button type="button" class="chip" data-filter="Verpakking" aria-pressed="false">Verpakking</button>
         <button type="button" class="chip" data-filter="Web" aria-pressed="false">Web</button>
       </div>
-      <div class="views" role="group" aria-label="Weergave" hidden>
+      
+      <!-- HIER IS 'hidden' VERWIJDERD -->
+      <div class="views" role="group" aria-label="Weergave">
         <button type="button" class="chip" data-view="grid" aria-pressed="true">Raster</button>
         <button type="button" class="chip" data-view="list" aria-pressed="false">Lijst</button>
       </div>
