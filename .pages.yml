@@ -51,8 +51,8 @@ content:
     format: yaml-frontmatter
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
-      - { name: project_year, label: Project Jaar (bijv. 2026), type: string, required: true }
-      - { name: project_location, label: Plaats / Stad, type: string, required: true }
+      - { name: project_year, label: Project Jaar (bijv. 2026), type: string, required: false }
+      - { name: project_location, label: Plaats / Stad, type: string, required: false }
       
       # DE GECORRIGEERDE DROPDOWN CONFIGURATIE:
       - name: project_type
