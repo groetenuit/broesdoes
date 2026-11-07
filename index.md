@@ -1,7 +1,7 @@
 ---
 title: Index
 description: Broes Droes houdt van foto en video
-layout: default
+layout: home
 ---
 # Welkom
 
