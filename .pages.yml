@@ -9,32 +9,57 @@ content:
     type: collection
     path: /
     format: yaml-frontmatter
-    extension: md         # <--- Forceert markdown extensie
-    filename: "{slug}.md" # <--- Forceert pure naam zonder datum voor nieuwe pagina's
+    extension: md
+    filename: "{slug}.md"
     files:
-      - { name: home, label: Homepagina, path: index.md, fields: [{ name: layout, type: string, default: home, hidden: true }] }
+      # HOMEPAGINA
+      - name: home
+        label: Homepagina
+        path: index.md
+        fields:
+          - { name: title, label: Pagina Titel, type: string, required: true }
+          - { name: description, label: Description, type: string, required: true }
+          - { name: layout, label: Layout, type: string, default: home, hidden: true }
+          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+          - { name: body, label: Inhoud, type: rich-text }
+
       - { name: over-ons, label: Over Ons, path: over-ons.md }
       - { name: projecten, label: Projecten Overzicht, path: projecten.md }
-      - { name: contact, label: Contact, path: contact.md, fields: [{ name: layout, type: string, default: contact-layout, hidden: true }] }
+      
+      # CONTACTPAGINA
+      - name: contact
+        label: Contact
+        path: contact.md
+        fields:
+          - { name: title, label: Pagina Titel, type: string, required: true }
+          - { name: description, label: Description, type: string, required: true }
+          - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
+          - { name: contact_image, label: Contact Afbeelding (Inhoud), type: image }
+          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+          - { name: body, label: Inhoud, type: rich-text }
+
       - { name: privacy, label: Privacy Policy, path: privacy.md }
       - { name: voorwaarden, label: Algemene Voorwaarden, path: voorwaarden.md }
       - { name: bedankt, label: Bedankpagina, path: bedankt.md }
 
+    # Standaardvelden voor álle overige algemene pagina's
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
       - { name: body, label: Inhoud, type: rich-text }
 
-# 2. Dynamische portfoliocollectie (hier kun je wél nieuwe pagina's aanmaken!)
+  # 2. Dynamische portfoliocollectie
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
     path: _werk/
     extension: md
-    filename: "{slug}.md" # <--- De .md toevoeging lost de lege extensie-fout op
+    filename: "{slug}.md"
     format: yaml-frontmatter
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
       - { name: body, label: Project Omschrijving, type: rich-text }
