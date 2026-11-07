@@ -35,7 +35,7 @@ content:
           - { name: description, label: Description, type: string, required: true }
           - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
           - { name: contact_image, label: Contact Afbeelding (Inhoud), type: image }
-          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image } # <--- Toegevoegd
+          - { name: og_image, label: Afbeelding, type: image } # <--- Toegevoegd
           - { name: body, label: Inhoud, type: rich-text }
 
       - { name: privacy, label: Privacy Policy, path: privacy.md }
