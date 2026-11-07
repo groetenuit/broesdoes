@@ -3,7 +3,7 @@ media:
   output: /images
 
 content:
-  # 1. Vaste algemene pagina's van de site
+  # 1. STANDAARD ALGEMENE PAGINA'S (Zonder de contactpagina)
   - name: pages
     label: Algemene Pagina's
     type: collection
@@ -12,37 +12,12 @@ content:
     extension: md
     filename: "{slug}.md"
     files:
-      # HOMEPAGINA
-      - name: home
-        label: Homepagina
-        path: index.md
-        fields:
-          - { name: title, label: Pagina Titel, type: string, required: true }
-          - { name: description, label: Description, type: string, required: true }
-          - { name: layout, label: Layout, type: string, default: home, hidden: true }
-          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-          - { name: body, label: Inhoud, type: rich-text }
-
+      - { name: home, label: Homepagina, path: index.md }
       - { name: over-ons, label: Over Ons, path: over-ons.md }
       - { name: projecten, label: Projecten Overzicht, path: projecten.md }
-      
-      # CONTACTPAGINA (Nu perfect uitgelijnd met de juiste streepjes)
-      - name: contact
-        label: Contact
-        path: contact.md
-        fields:
-          - { name: title, label: Pagina Titel, type: string, required: true }
-          - { name: description, label: Description, type: string, required: true }
-          - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
-          - { name: featured_image, label: Afbeelding (Linkerkolom), type: image }
-          - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-          - { name: body, label: Inhoud, type: rich-text }         
-
       - { name: privacy, label: Privacy Policy, path: privacy.md }
       - { name: voorwaarden, label: Algemene Voorwaarden, path: voorwaarden.md }
       - { name: bedankt, label: Bedankpagina, path: bedankt.md }
-
-    # Standaardvelden voor álle overige algemene pagina's
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
@@ -50,7 +25,23 @@ content:
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
 
-  # 2. Dynamische portfoliocollectie
+  # 2. UNIEKE INRICHTING SPECIFIEK VOOR DE CONTACTPAGINA
+  - name: contact_page
+    label: Contactpagina Beheer
+    type: collection
+    path: /
+    format: yaml-frontmatter
+    files:
+      - { name: contact, label: Contact Gegevens, path: contact.md }
+    fields:
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
+      - { name: featured_image, label: Afbeelding (Linkerkolom), type: image } # <--- DIT VELD STAAT NU DAADWERKELIJK IN DE HOOFDLIJST EN IS DIRECT ZICHTBAAR!
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
+      - { name: body, label: Inhoud, type: rich-text }         
+
+  # 3. DYNAMISCHE PORTFOLIOCOLLECTIE (Mijn Werk)
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
