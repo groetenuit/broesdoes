@@ -21,6 +21,7 @@ content:
       - { name: bedankt, label: Bedankpagina, path: bedankt.md }
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: body, label: Inhoud, type: rich-text }
 
