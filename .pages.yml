@@ -2,44 +2,40 @@ media:
   output: images
   path: /images
 
-# We definiëren de losse pagina's als losse Markdown-bestanden
 content:
+  # 1. De vaste algemene pagina's van de site
   - name: pages
-    label: Pagina's
+    label: Algemene Pagina's
     type: collection
     path: /
     format: yaml-frontmatter
-    exclude: ["README.md", "LICENSE"]
+    files:
+      - { name: home, label: Homepagina, path: index.md }
+      - { name: over-ons, label: Over Ons, path: over-ons.md }
+      - { name: projecten, label: Projecten Overzicht, path: projecten.md }
+      - { name: contact, label: Contact, path: contact.md }
+      - { name: privacy, label: Privacy Policy, path: privacy.md }
+      - { name: voorwaarden, label: Algemene Voorwaarden, path: voorwaarden.md }
+      - { name: bedankt, label: Bedankpagina, path: bedankt.md }
     fields:
-      - name: title
-        label: Pagina Titel
-        type: string
-        required: true
-      - name: layout
-        label: Layout (Laat op default staan)
-        type: string
-        default: default
-        hidden: true
-      - name: body
-        label: Inhoud van de pagina
-        type: rich-text
-      - name: cover
-        label: Cover image
-        type: image
-        options:
-        media: images
-  - name: site
-    label: Site settings
-    type: file
-    path: src/_data/site.json
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: default, hidden: true }
+      - { name: body, label: Inhoud, type: rich-text }
+
+  # 2. De specifieke werk- / projectenpagina's
+  - name: werk
+    label: Mijn Werk / Projecten
+    type: collection
+    path: /
+    format: yaml-frontmatter
+    files:
+      - { name: atelier-moreels, label: Werk: Atelier Moreels, path: werk-atelier-moreels.md }
+      - { name: kaaitheater, label: Werk: Kaaitheater, path: werk-kaaitheater.md }
+      - { name: brouwerij-zennevallei, label: Werk: Brouwerij Zennevallei, path: werk-brouwerij-zennevallei.md }
+      - { name: bakkerij-delvaux, label: Werk: Bakkerij Delvaux, path: werk-bakkerij-delvaux.md }
+      - { name: stad-mechelen, label: Werk: Stad Mechelen, path: werk-stad-mechelen.md }
+      - { name: uitgeverij-vlek, label: Werk: Uitgeverij Vlek, path: werk-uitgeverij-vlek.md }
     fields:
-      - name: title
-        type: string
-      - name: description
-        type: text
-      - name: url
-        type: string
-actions:
-  - name: deploy-site
-    label: Deploy site
-    workflow: pages-cms-action.yml
+      - { name: title, label: Project Titel, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: default, hidden: true }
+      - { name: body, label: Project Omschrijving, type: rich-text }
