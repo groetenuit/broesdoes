@@ -5,9 +5,12 @@ layout: default
 
 # Onze Projecten
 
-*   **[Portugal](/werk/portugal.html)**
-*   **[Billie](/werk/billie.html)**
-*   **[Marokko](/werk/marokko.html)**
-*   **[Brouwerij Zennevallei](/werk/brouwerij-zennevallei.html)**
-*   **[Bakkerij Delvaux](/werk/bakkerij-delvaux.html)**
-*   **[Uitgeverij Vlek](/werk/uitgeverij-vlek.html)**
+Hieronder vindt u al onze projecten. Dit overzicht wordt automatisch bijgewerkt wanneer u een nieuw project toevoegt in Pages CMS:
+
+<ul>
+  {% for project in site.werk %}
+    <li>
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
