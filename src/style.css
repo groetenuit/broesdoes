@@ -212,7 +212,7 @@ a.ph:hover { opacity: 0.85; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
   height: calc(var(--bar) + env(safe-area-inset-bottom, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  background: var(--page);
+  background: var(--inhoud);
   align-items: center;
   font-size: var(--text-lg);
 }
