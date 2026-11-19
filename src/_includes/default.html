@@ -42,12 +42,7 @@
           {%- assign bk = kleuren[blok.kleur] %}
           <section class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}; background-color: var(--inhoud); color: var(--ink);"{% endif %}>
             <div class="service-content">
-              {%- if forloop.first %}
-                <h1>{{ blok.title }}</h1>
-              {%- else %}
-                <h2>{{ blok.title }}</h2>
-              {%- endif %}
-              <p>{{ blok.tekst | newline_to_br }}</p>
+              {{ blok.inhoud | markdownify }}
             </div>
           </section>
         {%- endfor %}
@@ -55,6 +50,7 @@
 
       {{ content }}
     </main>
+
         <!-- 
     <footer class="site-footer grid12">
       <svg class="f-mark" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M2 6h68M2 20h44M2 34h24"/></svg>
