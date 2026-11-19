@@ -577,9 +577,8 @@ main#inhoud:has(> .service-block) {
 }
 
 .service-content p {
-  font-size: clamp(1.15rem, 1.4vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.2vw, 1.75rem);
   line-height: 1.5;
-  font-family: "Alcyone";
 }
 
 .service-content p + p {
