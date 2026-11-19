@@ -37,6 +37,22 @@
   <!-- Kader: volledige hoogte, 1px lijn, afgeronde hoek. Kleur per pagina via "kleur:" -->
   <div class="kader">
     <main id="inhoud">
+      {%- if blokken and blokken.size > 0 %}
+        {%- for blok in blokken %}
+          {%- assign bk = kleuren[blok.kleur] %}
+          <section class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}; background-color: var(--inhoud); color: var(--ink);"{% endif %}>
+            <div class="service-content">
+              {%- if forloop.first %}
+                <h1>{{ blok.title }}</h1>
+              {%- else %}
+                <h2>{{ blok.title }}</h2>
+              {%- endif %}
+              <p>{{ blok.tekst | newline_to_br }}</p>
+            </div>
+          </section>
+        {%- endfor %}
+      {%- endif %}
+
       {{ content }}
     </main>
         <!-- 
