@@ -13,11 +13,26 @@
 }
 @font-face {
   font-family: "Strawford";
+  src: url("fonts/strawford-regularitalic-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Strawford";
   src: url("fonts/strawford-medium-webfont.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Strawford";
+  src: url("fonts/strawford-bold-webfont.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 :root {
   --home: #F4F2EC;
