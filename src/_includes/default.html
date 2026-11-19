@@ -69,7 +69,7 @@
   <!-- Vaste navigatie onderaan. Het menu staat centraal in src/_data/nav.json -->
   <div class="bottom-bar">
     <nav class="bar nav" aria-label="Hoofdmenu">
-      <a class="logo-a" href="{{ '/' | url }}"><img width="249" height="56" src="{{ '/images/Broes-Does-animated-logo-2.svg' | url }}" class="custom-logo" alt="Broes does"></a>
+      <a class="logo-a" href="{{ '/' | url }}">Groeten uit Dendermonde!</a>
       <ul>
         {%- for item in nav.hoofd %}
         <li><a href="{{ item.url | url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
