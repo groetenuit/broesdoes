@@ -14,6 +14,7 @@ blokken:
       onberispelijke bladspiegels en toegankelijke websites.
 
   - kleur: Geel
+    anker: "#logo_en_huisstijl"
     inhoud: >+
       # Logo en huisstijl
 
@@ -22,6 +23,7 @@ blokken:
       logo’s en huisstijlen die kloppen. In kleur, vorm én gevoel.
 
   - kleur: Donkerbruin
+    anker: "#jaarverslagen"
     inhoud: >+
       # Druk. Druk. Druk.
 
@@ -31,6 +33,7 @@ blokken:
       zorg ik voor drukwerk dat magisch voelt.
 
   - kleur: Roos
+    anker: "#website"
     inhoud: >-
       # Web
 
