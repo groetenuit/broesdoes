@@ -77,5 +77,30 @@
       </ul>
     </nav>
   </div>
+      {%- if blokken and blokken.size > 0 %}
+  <script>
+    // Zet deze code tussen /* en */ om terug te schakelen naar Optie 1 (vaste balkkleur)
+    const kader = document.querySelector('.kader');
+    const balk = document.querySelector('.bottom-bar .bar');
+    const blokken = document.querySelectorAll('.service-block');
+
+    if (kader && balk && blokken.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bg = entry.target.style.getPropertyValue('--inhoud');
+            const ink = entry.target.style.getPropertyValue('--ink');
+            if (bg) balk.style.setProperty('--inhoud', bg);
+            if (ink) balk.style.setProperty('--ink', ink);
+          }
+        });
+      }, { root: kader, threshold: 0.55 });
+
+      blokken.forEach((blok) => observer.observe(blok));
+    }
+  </script>
+  {%- endif %}
+</body>
+
 </body>
 </html>
