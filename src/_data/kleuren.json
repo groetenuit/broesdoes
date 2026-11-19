@@ -1,8 +1,8 @@
 {
-  "zand":     { "label": "Rood",     "bg": "#EA1F2D", "ink": "#481816" },
-  "klei":     { "label": "Donkerbruin",     "bg": "#481816", "ink": "#fff" },
-  "roze":     { "label": "Geel",     "bg": "#E9C926", "ink": "#1A1B19" },
-  "boter":    { "label": "Roos",    "bg": "#EEDEC6", "ink": "#1A1B19" },
+  "Rood":     { "label": "Rood",     "bg": "#EA1F2D", "ink": "#481816" },
+  "Donkerbruin":     { "label": "Donkerbruin",     "bg": "#481816", "ink": "#fff" },
+  "Geel":     { "label": "Geel",     "bg": "#E9C926", "ink": "#1A1B19" },
+  "Roos":    { "label": "Roos",    "bg": "#EEDEC6", "ink": "#1A1B19" },
   "salie":    { "label": "Salie",    "bg": "#D9E2D3", "ink": "#1A1B19" },
   "mist":     { "label": "Mist",     "bg": "#D6E2E8", "ink": "#1A1B19" },
   "lavendel": { "label": "Lavendel", "bg": "#E2DCEE", "ink": "#1A1B19" },
