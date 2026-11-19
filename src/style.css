@@ -5,6 +5,12 @@
 
 /* Lettertype Strawford: zet de bestanden (woff2) in src/fonts/ */
 @font-face {
+  font-family: "Alcyone";
+  src: url("fonts/Alcyone-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "Strawford";
   src: url("fonts/strawford-regular-webfont.woff2") format("woff2");
   font-weight: 400;
