@@ -10,8 +10,10 @@ blokken:
 
 
       Ik ben Kris, grafisch ontwerper. Vanuit mijn hometown Dendermonde (het
-      bruisende New York van de Scheldevallei) ontwerp ik logo’s, huisstijlen,
-      onberispelijke bladspiegels en toegankelijke websites.
+      bruisende New York van de Scheldevallei) ontwerp ik
+      [logo’s](#logo_en_huisstijl), [huisstijlen](#logo_en_huisstijl),
+      [onberispelijke bladspiegels](#jaarverslagen) en [toegankelijke
+      websites](#website).
 
   - kleur: Geel
     anker: "#logo_en_huisstijl"
