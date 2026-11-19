@@ -1,23 +1,26 @@
 media:
-  input: images
+  input: src/images
   output: /images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
 
 content:
-  # 1. STANDAARD ALGEMENE PAGINA'S (Zonder de contactpagina)
-  - name: pages
-    label: Algemene Pagina's
-    type: collection
-    path: /
-    format: yaml-frontmatter
-    extension: md
-    filename: "{slug}.md"
-    files:
-      - { name: home, label: Homepagina, path: index.md }
-      - { name: over-ons, label: Over Ons, path: over-ons.md }
-      - { name: projecten, label: Projecten Overzicht, path: projecten.md }
-      - { name: privacy, label: Privacy Policy, path: privacy.md }
-      - { name: voorwaarden, label: Algemene Voorwaarden, path: voorwaarden.md }
-      - { name: bedankt, label: Bedankpagina, path: bedankt.md }
+  # Losse pagina's
+  - name: home
+    label: Homepagina
+    type: file
+    path: src/index.md
+    fields:
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: home, hidden: true }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
+      - { name: body, label: Inhoud, type: rich-text }
+
+  - name: hoe-zo
+    label: Hoe? Zo!
+    type: file
+    path: src/hoe-zo.md
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
@@ -25,44 +28,47 @@ content:
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
 
-  # 2. UNIEKE INRICHTING SPECIFIEK VOOR DE CONTACTPAGINA
-  - name: contact_page
-    label: Contactpagina Beheer
-    type: collection
-    path: /
-    format: yaml-frontmatter
-    files:
-      - { name: contact, label: Contact Gegevens, path: contact.md }
+  - name: services
+    label: Services
+    type: file
+    path: src/services.md
+    fields:
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: default, hidden: true }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
+      - { name: body, label: Inhoud, type: rich-text }
+
+  - name: contact
+    label: Contactpagina
+    type: file
+    path: src/contact.md
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
-      - { name: featured_image, label: Afbeelding (Linkerkolom), type: image } # <--- DIT VELD STAAT NU DAADWERKELIJK IN DE HOOFDLIJST EN IS DIRECT ZICHTBAAR!
+      - { name: featured_image, label: Afbeelding (Linkerkolom), type: image }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-      - { name: body, label: Inhoud, type: rich-text }         
+      - { name: body, label: Inhoud, type: rich-text }
 
-    # 3. DYNAMISCHE PORTFOLIOCOLLECTIE (Mijn Werk)
+  # Portfolio: één bestand per project in src/werk
   - name: werk
     label: Mijn Werk / Projecten
     type: collection
-    path: _werk/
-    extension: md
-    filename: "{slug}.md"
-    format: yaml-frontmatter
+    path: src/werk
+    filename: "{primary}.md"
     fields:
       - { name: title, label: Project Titel, type: string, required: true }
-      - { name: project_year, label: Project Jaar (bijv. 2026), type: string, required: false }
-      - { name: project_location, label: Plaats / Stad, type: string, required: false }
-      
-      # DE GECORRIGEERDE DROPDOWN CONFIGURATIE:
+      - { name: project_year, label: Project Jaar (bijv. 2026), type: string }
+      - { name: project_location, label: Plaats / Stad, type: string }
       - name: project_type
         label: Soort Project (Type)
         type: select
         required: true
         options:
-          values: ["Campagne", "Editoriaal", "Eigen werk"] # <--- 'values' activeert de keuzelijst correct
-          
-      - { name: layout, label: Layout, type: string, default: default, hidden: true }
+          values: ["Campagne", "Editoriaal", "Eigen werk"]
       - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Project Omschrijving, type: rich-text }
+    view:
+      primary: title

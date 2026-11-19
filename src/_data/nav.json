@@ -1,5 +1,11 @@
-[
-  { "label": "Hoe? Zo!", "url": "/hoe-zo/" },
-  { "label": "Contact", "url": "/contact/" },
-  { "label": "Portfolio", "url": "/portfolio/" }
-]
+{
+  "hoofd": [
+    { "label": "Hoe? Zo!", "url": "/hoe-zo/" },
+    { "label": "Contact", "url": "/contact/" },
+    { "label": "Portfolio", "url": "/portfolio/" }
+  ],
+  "voet": [
+    { "label": "Algemene voorwaarden", "url": "/voorwaarden/" },
+    { "label": "Privacyverklaring", "url": "/privacy/" }
+  ]
+}

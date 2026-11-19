@@ -1,0 +1,6 @@
+{
+  "tags": "werk",
+  "layout": "project",
+  "bodyClass": "is-project",
+  "permalink": "/werk/{{ page.fileSlug }}/"
+}

@@ -389,3 +389,6 @@ a.ph:hover { opacity: 0.85; }
     }
   }
 }
+
+/* Projectpagina: tekst onder de gegevens */
+.p-tekst { margin-top: 1.5rem; display: grid; gap: 1rem; }
