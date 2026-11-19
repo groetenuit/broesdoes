@@ -1,10 +1,17 @@
 import fs from "node:fs";
+import markdownIt from "markdown-it";
 
 // Op GitHub Pages zonder eigen domein staat de site onder /gud/.
 // De workflow zet PATH_PREFIX; lokaal en met eigen domein blijft het "/".
 const pathPrefix = process.env.PATH_PREFIX || "/";
 
 export default function (eleventyConfig) {
+  // Zet Markdown om naar HTML (nodig voor rich-text velden in Pages CMS)
+  const md = markdownIt({ html: true, breaks: true, linkify: true });
+  eleventyConfig.addFilter("markdownify", (content) => {
+    return content ? md.render(content) : "";
+  });
+
   // Bestanden die ongewijzigd naar de uitvoermap gaan
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
