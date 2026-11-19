@@ -1,6 +1,6 @@
 {
   "hoofd": [
-    { "label": "Hoe? Zo!", "url": "/hoe-zo/" },
+    { "label": "Services", "url": "/services/" },
     { "label": "Contact", "url": "/contact/" },
     { "label": "Portfolio", "url": "/portfolio/" }
   ],
