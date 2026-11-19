@@ -479,7 +479,7 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
 .contact-content {
   max-width: 800px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   padding-inline: 1.5rem;
 }
 
