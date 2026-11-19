@@ -23,9 +23,12 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "liquid",
   };
 }
-// E-mailadres verbergen en compileren via Eleventy plugin.
-import emailObfuscator from "eleventy-plugin-email-obfuscator";
-
-export default function(eleventyConfig) {
-  eleventyConfig.addPlugin(emailObfuscator);
-}
+  // Versleutelt e-mailadressen automatisch naar HTML-entities tijdens de build
+  eleventyConfig.addTransform("obfuscate-emails", function(content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+      return content.replace(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi, (email) => {
+        return email.split('').map(char => `&#${char.charCodeAt(0)};`).join('');
+      });
+    }
+    return content;
+  });
