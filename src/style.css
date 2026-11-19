@@ -38,7 +38,7 @@
   --text-xl: clamp(1.25rem, 2.2vw, 1.75rem);
 
   --gutter: 16px;
-  --bar: 48px;
+  --bar: 56px;
   --rest: clamp(7rem, 15vw, 15rem);   /* witruimte tussen rijen */
 }
 
@@ -345,11 +345,12 @@ a.ph:hover { opacity: 0.85; }
 
 /* Voet: groot rustig vlak, gegevens onderaan */
 .site-footer {
-  margin-top: var(--rest);
-  min-height: 70svh;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--line);
   align-content: end;
-  row-gap: 2rem;
-  padding-bottom: calc(var(--bar) + 1.5rem);
+  row-gap: 1.5rem;
   font-size: var(--text-sm);
   line-height: 1.6;
 }
@@ -409,21 +410,52 @@ a.ph:hover { opacity: 0.85; }
 /* Projectpagina: tekst onder de gegevens */
 .p-tekst { margin-top: 1.5rem; display: grid; gap: 1rem; }
 
-/* Inhoud: volledige hoogte (tussen kopbalk en onderbalk), kader van 1px met afgeronde hoek */
-main#inhoud {
+/* Kader: volledige hoogte, 1px lijn, afgeronde hoek.
+   Achtergrondkleur per pagina: zet "kleur: salie" (zie src/_data/kleuren.json) bovenaan de pagina. */
+.kader {
   display: flex;
   flex-direction: column;
-  min-height: calc(100svh - var(--bar) * 2);
-  margin-inline: var(--gutter);
-  padding-bottom: 2rem;
+  min-height: calc(100svh - var(--gutter) * 2);
+  margin: var(--gutter);
+  padding-bottom: var(--bar);            /* ruimte voor de vaste navigatie onderaan */
   border: 1px solid var(--line);
   border-radius: 12px;
-  /* Achtergrondkleur per pagina: zet "kleur: salie" (zie src/_data/kleuren.json) bovenaan de pagina */
   background: var(--inhoud, transparent);
   color: var(--ink);
 }
+main#inhoud { flex: 1 0 auto; display: flex; flex-direction: column; padding-bottom: 2rem; }
 main#inhoud > * { flex-shrink: 0; }
 main#inhoud > .p-hero { flex: 1 0 auto; min-height: 0; }
 /* Pagina's zonder rooster (homepagina, Hoe? Zo!): tekst niet tegen het kader */
 main#inhoud > :is(p, h1, h2, h3, ul, ol, .hero-banner, .home-content) { padding-inline: var(--gutter); }
 main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
+
+/* Vaste navigatie onderaan, binnen het kader */
+.bottom-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  padding: 0 var(--gutter) max(var(--gutter), env(safe-area-inset-bottom, 0px));
+  background: var(--page);               /* dekt de strook onder het kader af */
+  height: auto;
+  display: block;
+}
+.bottom-bar .bar {
+  width: 100%; justify-self: stretch;
+  height: var(--bar);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+  background: var(--inhoud, var(--page));
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 0 0 12px 12px;
+  font-size: var(--text-sm);
+}
+.bottom-bar .logo-a { grid-column: auto; display: flex; align-items: center; }
+.bottom-bar .custom-logo { height: 40px; width: auto; }
+.bottom-bar .nav a { white-space: nowrap; }
+@media (max-width: 700px) {
+  .bottom-bar .bar { padding-inline: 0.75rem; gap: 0.5rem; }
+  .bottom-bar .custom-logo { height: 26px; }
+  .bottom-bar .nav ul { gap: 0.875rem; }
+}
+.bottom-bar .nav { grid-column: auto; }
+.bottom-bar .nav ul { gap: clamp(1rem, 2.5vw, 1.75rem); }
