@@ -37,7 +37,7 @@
   --text-sm: 0.875rem;
   --text-base: 1.0625rem;
   --text-lg: clamp(1.125rem, 1.4vw, 1.3rem);
-  --text-xl: clamp(1.55rem, 2.2vw, 1.75rem);
+  --text-xl: clamp(1.25rem, 2.2vw, 1.75rem);
 
   --gutter: 16px;
   --bar: 56px;
