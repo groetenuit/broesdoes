@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-// Op GitHub Pages zonder eigen domein staat de site onder /broesdoes/.
+// Op GitHub Pages zonder eigen domein staat de site onder /gud/.
 // De workflow zet PATH_PREFIX; lokaal en met eigen domein blijft het "/".
 const pathPrefix = process.env.PATH_PREFIX || "/";
 
