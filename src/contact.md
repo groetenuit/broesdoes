@@ -1,6 +1,6 @@
 ---
 title: Contact
-description: Broes Droes houdt van foto en video
+description: Grafisch ontwerp en webdesign
 layout: contact-layout
 kleur: Rood
 featured_image: /images/dummy.webp
