@@ -11,7 +11,7 @@ blokken:
 
       Ik ben Kris, grafisch ontwerper. Vanuit mijn hometown Dendermonde (het
       bruisende New York van de Scheldevallei) ontwerp
-      ik logo’s, huisstijlen, onberispelijke bladspiegels en toegankelijke
+      ik logo’s, huisstijlen, onberispelijke bladspiegels en toegankelijke
       websites.
 
   - kleur: Geel
@@ -20,7 +20,7 @@ blokken:
 
 
       Een sterk merk onderscheidt zich met een sterke huisstijl. First Moon
-      ontwerp logo’s en huisstijlen die kloppen. In kleur, vorm én gevoel. 
+      ontwerp logo’s en huisstijlen die kloppen. In kleur, vorm én gevoel.
 
   - kleur: Donkerbruin
     inhoud: >+
@@ -37,6 +37,8 @@ blokken:
 
 
       Less is more. Zeker online. Een goede website is duidelijk, snel
-      en toegankelijk voor iedereen. Ik ontwerp websites zonder poespas, maar
-      mét pit.
+      en toegankelijk voor iedereen.
+
+
+      Ik ontwerp websites zonder poespas, maar mét pit.
 ---
