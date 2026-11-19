@@ -25,6 +25,7 @@
   --page: var(--home);
   --ink: #1a1b19;
   --line: #c6cac2;
+  --kader-lijn: #481816;   /* kleur van de rand rond het kader, de lijn boven de navigatie en de footerlijn */
   --tile-1: #c8ccc4;
   --tile-2: #d3cbbf;
   --tile-3: #bfc8cb;
@@ -348,7 +349,7 @@ a.ph:hover { opacity: 0.85; }
   margin-top: 2rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--kader-lijn);
   align-content: end;
   row-gap: 1.5rem;
   font-size: var(--text-sm);
@@ -418,7 +419,7 @@ a.ph:hover { opacity: 0.85; }
   min-height: calc(100svh - var(--gutter) * 2);
   margin: var(--gutter);
   padding-bottom: var(--bar);            /* ruimte voor de vaste navigatie onderaan */
-  border: 1px solid var(--line);
+  border: 1px solid var(--kader-lijn);
   border-radius: 12px;
   background: var(--inhoud, transparent);
   color: var(--ink);
@@ -445,7 +446,7 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
   padding-inline: clamp(1rem, 3vw, 2.5rem);
   background: var(--inhoud, var(--page));
   color: var(--ink);
-  border: 1px solid var(--line);
+  border: 1px solid var(--kader-lijn);
   border-radius: 0 0 12px 12px;
   font-size: var(--text-sm);
 }
