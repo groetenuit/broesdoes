@@ -17,17 +17,6 @@ content:
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
 
-  - name: hoe-zo
-    label: Hoe? Zo!
-    type: file
-    path: src/hoe-zo.md
-    fields:
-      - { name: title, label: Pagina Titel, type: string, required: true }
-      - { name: description, label: Description, type: string, required: true }
-      - { name: layout, label: Layout, type: string, default: default, hidden: true }
-      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-      - { name: body, label: Inhoud, type: rich-text }
-
   - name: services
     label: Services
     type: file
