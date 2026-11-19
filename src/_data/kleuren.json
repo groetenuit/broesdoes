@@ -1,1 +1,10 @@
-
+{
+  "zand":     { "label": "Zand",     "bg": "#EBE5D6", "ink": "#1A1B19" },
+  "klei":     { "label": "Klei",     "bg": "#E9CDBE", "ink": "#1A1B19" },
+  "roze":     { "label": "Roze",     "bg": "#F2D8D5", "ink": "#1A1B19" },
+  "boter":    { "label": "Boter",    "bg": "#F3E6B5", "ink": "#1A1B19" },
+  "salie":    { "label": "Salie",    "bg": "#D9E2D3", "ink": "#1A1B19" },
+  "mist":     { "label": "Mist",     "bg": "#D6E2E8", "ink": "#1A1B19" },
+  "lavendel": { "label": "Lavendel", "bg": "#E2DCEE", "ink": "#1A1B19" },
+  "nacht":    { "label": "Nacht",    "bg": "#1F211E", "ink": "#F4F2EC" }
+}
