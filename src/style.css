@@ -6,14 +6,14 @@
 /* Lettertype Strawford: zet de bestanden (woff2) in src/fonts/ */
 @font-face {
   font-family: "Strawford";
-  src: url("fonts/Strawford-Regular.woff2") format("woff2");
+  src: url("fonts/strawford-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Strawford";
-  src: url("fonts/Strawford-Medium.woff2") format("woff2");
+  src: url("fonts/strawford-medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
