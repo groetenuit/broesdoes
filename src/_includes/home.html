@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-<!-- Hier wordt de tekst uit index.md geladen -->
+{%- assign schone_content = content | strip -%}
+{%- if schone_content != "" -%}
 <div class="home-content">
     {{ content }}
 </div>
+{%- endif -%}
