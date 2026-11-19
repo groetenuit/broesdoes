@@ -4,7 +4,7 @@
    Geen webfonts, geen framework. */
 
 :root {
-  --home: #e6e7e3;
+  --home: #F4F2EC;
   --project: #dde2da;
   --page: var(--home);
   --ink: #1a1b19;
