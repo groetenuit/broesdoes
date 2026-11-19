@@ -418,6 +418,9 @@ main#inhoud {
   padding-bottom: 2rem;
   border: 1px solid var(--line);
   border-radius: 12px;
+  /* Achtergrondkleur per pagina: zet "kleur: salie" (zie src/_data/kleuren.json) bovenaan de pagina */
+  background: var(--inhoud, transparent);
+  color: var(--ink);
 }
 main#inhoud > * { flex-shrink: 0; }
 main#inhoud > .p-hero { flex: 1 0 auto; min-height: 0; }
