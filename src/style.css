@@ -499,7 +499,7 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
    Schermvullende blokken (o.a. Services & Home) binnen vast .kader
    ========================================================================== */
 
-/* Kader blijft vast in beeld staan zodat de 1px-rand en afgeronde hoeken altijd zichtbaar zijn */
+/* Kader blijft vast in beeld zodat de 1px-rand en afgeronde hoeken altijd blijven staan */
 .kader:has(.service-block) {
   height: calc(100svh - var(--gutter) * 2);
   overflow-y: auto;
@@ -507,21 +507,27 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
   padding-bottom: 0;
   scroll-snap-type: y proximity; /* Subtiel vastklikken bij het scrollen */
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Verbergt schuifbalk in Firefox zodat de 1px-rand strak blijft */
+}
+.kader:has(.service-block)::-webkit-scrollbar {
+  display: none; /* Verbergt schuifbalk in Chrome/Safari/Edge */
 }
 
-/* Verwijder de extra witruimte onderaan main als er alleen schermblokken staan */
-main#inhoud:has(> .service-block):not(:has(> :not(.service-block))) {
+/* Voorkom dat flexbox de hoogte van de blokken oprekt */
+main#inhoud:has(> .service-block) {
+  display: block;
   padding-bottom: 0;
 }
 
 .service-block {
-  min-height: 100%; /* Vult het volledige kader, inclusief achter de transparante balk */
+  /* Exacte binnenhoogte van het kader (schermhoogte min 2x marge en 2px rand) */
+  min-height: calc(100svh - var(--gutter) * 2 - 2px);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* Extra padding onderaan zodat de tekst optisch gecentreerd blijft boven de navigatiebalk */
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem) calc(var(--bar) + clamp(2.5rem, 5vw, 4rem));
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem) calc(var(--bar) + clamp(2rem, 4vw, 3rem));
 }
 
 /* Uitlijning & schaal van de tekst, in dezelfde lijn als .home-content */
