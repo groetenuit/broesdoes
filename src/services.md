@@ -32,7 +32,7 @@ blokken:
       zorg ik voor drukwerk dat magisch voelt.
 
   - kleur: Roos
-    inhoud: >+
+    inhoud: >-
       # Web
 
 
@@ -40,8 +40,3 @@ blokken:
       en toegankelijk voor iedereen. Ik ontwerp websites zonder poespas, maar
       mét pit.
 ---
-Ik hou van het ontwerpen van logo's, huisstijlen, onberispelijke bladspiegels en toegankelijke websites.
-
-## Made in Dendermonde
-
-Zo ben je absoluut zeker van alle kwaliteitsvereisten én dat de productie in de beste omstandigheden is gebeurd.
