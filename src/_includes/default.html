@@ -77,37 +77,49 @@
       </ul>
     </nav>
   </div>
-        {%- if blokken and blokken.size > 0 %}
+   {%- if blokken and blokken.size > 0 %}
   <script>
-    // Zet deze code tussen /* en */ om terug te schakelen naar een vaste balkkleur
     const kader = document.querySelector('.kader');
     const balk = document.querySelector('.bottom-bar .bar');
-    const blokken = document.querySelectorAll('.service-block');
+    const blokken = [...document.querySelectorAll('.service-block')];
+
+    function updateBalkKleur() {
+      if (!kader || !balk || !blokken.length) return;
+      const kaderTop = kader.getBoundingClientRect().top;
+
+      // Zoek het blok dat het dichtst bij de bovenkant van het kader staat
+      let actiefBlok = blokken[0];
+      let kleinsteAfstand = Infinity;
+
+      for (const blok of blokken) {
+        const afstand = Math.abs(blok.getBoundingClientRect().top - kaderTop);
+        if (afstand < kleinsteAfstand) {
+          kleinsteAfstand = afstand;
+          actiefBlok = blok;
+        }
+      }
+
+      const bg = actiefBlok.style.getPropertyValue('--inhoud').trim();
+      if (bg) {
+        balk.style.setProperty('--inhoud', bg);
+        const hex = bg.replace('#', '');
+        if (hex.length === 6) {
+          const r = parseInt(hex.slice(0, 2), 16);
+          const g = parseInt(hex.slice(2, 4), 16);
+          const b = parseInt(hex.slice(4, 6), 16);
+          const isDonker = (r * 299 + g * 587 + b * 114) / 1000 < 140;
+          balk.classList.toggle('is-donker', isDonker);
+        }
+      }
+    }
 
     if (kader && balk && blokken.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const bg = entry.target.style.getPropertyValue('--inhoud').trim();
-            if (bg) {
-              balk.style.setProperty('--inhoud', bg);
-              const hex = bg.replace('#', '');
-              if (hex.length === 6) {
-                const r = parseInt(hex.slice(0, 2), 16);
-                const g = parseInt(hex.slice(2, 4), 16);
-                const b = parseInt(hex.slice(4, 6), 16);
-                const isDonker = (r * 299 + g * 587 + b * 114) / 1000 < 140;
-                balk.classList.toggle('is-donker', isDonker);
-              }
-            }
-          }
-        });
-      }, { root: kader, threshold: 0.55 });
-
-      blokken.forEach((blok) => observer.observe(blok));
+      updateBalkKleur();
+      kader.addEventListener('scroll', updateBalkKleur, { passive: true });
     }
   </script>
   {%- endif %}
 </body>
+
 
 </html>
