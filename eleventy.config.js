@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
 
   // Bestanden die ongewijzigd naar de uitvoermap gaan
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+  if (fs.existsSync("src/fonts")) eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" });
   eleventyConfig.addPassthroughCopy({ "src/style.css": "style.css" });
   if (fs.existsSync("src/js")) eleventyConfig.addPassthroughCopy({ "src/js": "js" });
 
