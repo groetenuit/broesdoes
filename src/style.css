@@ -556,3 +556,8 @@ main#inhoud:has(> .service-block) {
 .service-content p + p {
   margin-top: 1.1em;
 }
+/* Vloeiende kleurovergang en automatisch contrast voor de onderste navigatiebalk */
+body:has(.service-block) .bottom-bar .bar {
+  transition: background-color 0.35s ease, color 0.35s ease;
+  color: oklch(from var(--inhoud, var(--page)) clamp(0.15, (0.58 - l) * 1000, 0.96) 0.01 h);
+}
