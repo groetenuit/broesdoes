@@ -4,6 +4,19 @@ media:
   extensions: [jpg, jpeg, png, webp]
   rename: safe
 
+components:
+  schermblokken:
+    label: Schermvullende blokken
+    type: object
+    list:
+      collapsible:
+        collapsed: false
+        summary: "{fields.title}"
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: tekst, label: Tekst, type: text, required: true }
+      - { name: kleur, label: Achtergrondkleur, type: select, required: true, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+
 content:
   # Losse pagina's
   - name: home
@@ -16,7 +29,8 @@ content:
       - { name: layout, label: Layout, type: string, default: home, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-      - { name: body, label: Inhoud, type: rich-text }
+      - { name: blokken, component: schermblokken }
+      - { name: body, label: Extra Inhoud (optioneel), type: rich-text }
 
   - name: services
     label: Services
@@ -28,7 +42,8 @@ content:
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
-      - { name: body, label: Inhoud, type: rich-text }
+      - { name: blokken, component: schermblokken }
+      - { name: body, label: Extra Inhoud (optioneel), type: rich-text }
 
   - name: contact
     label: Contactpagina
