@@ -77,9 +77,9 @@
       </ul>
     </nav>
   </div>
-      {%- if blokken and blokken.size > 0 %}
+        {%- if blokken and blokken.size > 0 %}
   <script>
-    // Zet deze code tussen /* en */ om terug te schakelen naar Optie 1 (vaste balkkleur)
+    // Zet deze code tussen /* en */ om terug te schakelen naar een vaste balkkleur
     const kader = document.querySelector('.kader');
     const balk = document.querySelector('.bottom-bar .bar');
     const blokken = document.querySelectorAll('.service-block');
@@ -88,10 +88,18 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const bg = entry.target.style.getPropertyValue('--inhoud');
-            const ink = entry.target.style.getPropertyValue('--ink');
-            if (bg) balk.style.setProperty('--inhoud', bg);
-            if (ink) balk.style.setProperty('--ink', ink);
+            const bg = entry.target.style.getPropertyValue('--inhoud').trim();
+            if (bg) {
+              balk.style.setProperty('--inhoud', bg);
+              const hex = bg.replace('#', '');
+              if (hex.length === 6) {
+                const r = parseInt(hex.slice(0, 2), 16);
+                const g = parseInt(hex.slice(2, 4), 16);
+                const b = parseInt(hex.slice(4, 6), 16);
+                const isDonker = (r * 299 + g * 587 + b * 114) / 1000 < 140;
+                balk.classList.toggle('is-donker', isDonker);
+              }
+            }
           }
         });
       }, { root: kader, threshold: 0.55 });
@@ -102,5 +110,4 @@
   {%- endif %}
 </body>
 
-</body>
 </html>
