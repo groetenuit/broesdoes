@@ -3,7 +3,6 @@ title: Contact
 description: Grafisch ontwerp en webdesign
 layout: contact-layout
 kleur: Rood
-featured_image: /images/dummy.webp
 og_image: /images/portret-hond-billie.webp
 ---
 # Contact
