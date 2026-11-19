@@ -19,6 +19,11 @@ blokken:
       is mijn speeltuin. Met een zwak voor typografie en uitgekiende
       bladspiegels zorg ik voor drukwerk dat magisch voelt.
     kleur: Donkerbruin
+  - title: Web
+    tekst: Less is more. Zeker online. Een goede website is duidelijk, snel
+      en toegankelijk voor iedereen. Ik ontwerp websites zonder poespas, maar
+      mét pit.
+    kleur: Roos
 ---
 Ik hou van het ontwerpen van logo's, huisstijlen, onberispelijke bladspiegels en toegankelijke websites.
 
