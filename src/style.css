@@ -25,7 +25,7 @@
   --page: var(--home);
   --ink: #1a1b19;
   --line: #c6cac2;
-  --kader-lijn: #481816;   /* kleur van de rand rond het kader, de lijn boven de navigatie en de footerlijn */
+  --kader-lijn: Donkerbruin;   /* kleur van de rand rond het kader, de lijn boven de navigatie en de footerlijn */
   --tile-1: #c8ccc4;
   --tile-2: #d3cbbf;
   --tile-3: #bfc8cb;
