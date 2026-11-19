@@ -30,40 +30,39 @@
     <script src="{{ '/js/projecten.js' | url }}" defer></script>
 
 </head>
-<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+{%- assign k = kleuren[kleur] %}
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}{% if k %} style="--inhoud: {{ k.bg }}; --ink: {{ k.ink }}"{% endif %}>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
-  <header class="site-header grid12">
-    <a class="logo-a" href="{{ '/' | url }}"><img width="249" height="56" src="{{ '/images/Broes-Does-animated-logo-2.svg' | url }}" class="custom-logo" alt="Broes does"></a>
-    <!-- Het menu staat centraal in src/_data/nav.json -->
-    <nav class="nav" aria-label="Hoofdmenu">
+
+  <!-- Kader: volledige hoogte, 1px lijn, afgeronde hoek. Kleur per pagina via "kleur:" -->
+  <div class="kader">
+    <main id="inhoud">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer grid12">
+      <svg class="f-mark" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M2 6h68M2 20h44M2 34h24"/></svg>
+      <div class="f-col1">
+        BroesDoes ❤ Creative Fair Play. Monteren doet hij in Dendermonde, filmen overal. Mail naar {{ site.email }} voor info of samenwerking.
+      </div>
+      <div class="f-col3">
+        {%- for item in nav.voet %}
+        <a href="{{ item.url | url }}">{{ item.label }}</a>{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor %}
+      </div>
+    </footer>
+  </div>
+
+  <!-- Vaste navigatie onderaan. Het menu staat centraal in src/_data/nav.json -->
+  <div class="bottom-bar">
+    <nav class="bar nav" aria-label="Hoofdmenu">
+      <a class="logo-a" href="{{ '/' | url }}"><img width="249" height="56" src="{{ '/images/Broes-Does-animated-logo-2.svg' | url }}" class="custom-logo" alt="Broes does"></a>
       <ul>
         {%- for item in nav.hoofd %}
         <li><a href="{{ item.url | url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
         {%- endfor %}
       </ul>
     </nav>
-  </header>
-
-  {%- assign k = kleuren[kleur] %}
-  <main id="inhoud"{% if k %} style="--inhoud: {{ k.bg }}; --ink: {{ k.ink }}"{% endif %}>
-    {{ content }}
-  </main>
-
-<footer class="site-footer grid12">
-    <svg class="f-mark" viewBox="0 0 72 40" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M2 6h68M2 20h44M2 34h24"/></svg>
-    <div class="f-col1">
-      BroesDoes ❤ Creative Fair Play. Monteren doet hij in Dendermonde, filmen overal. Mail naar {{ site.email }} voor info of samenwerking.
-    </div>
-    <div class="f-col3">
-      {%- for item in nav.voet %}
-      <a href="{{ item.url | url }}">{{ item.label }}</a>{% unless forloop.last %}<br>{% endunless %}
-      {%- endfor %}
-    </div>
-  </footer>
-
-  <nav class="bottom-bar grid12" aria-label="Projecten">
-    <a class="bb-all" href="{{ '/portfolio/' | url }}">Alle projecten</a>
-    <a class="bb-contact" href="{{ '/contact/' | url }}">Contact</a>
-  </nav>
+  </div>
 </body>
 </html>
