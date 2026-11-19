@@ -504,7 +504,6 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
   height: calc(100svh - var(--gutter) * 2);
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 0;
   scroll-snap-type: y proximity; /* Subtiel vastklikken bij het scrollen */
   scroll-behavior: smooth;
   scrollbar-width: none; /* Verbergt schuifbalk in Firefox zodat de 1px-rand strak blijft */
@@ -520,14 +519,18 @@ main#inhoud:has(> .service-block) {
 }
 
 .service-block {
-  /* Exacte binnenhoogte van het kader (schermhoogte min 2x marge en 2px rand) */
-  min-height: calc(100svh - var(--gutter) * 2 - 2px);
+  /* Vult precies het zichtbare kader boven de egale navigatiebalk */
+  min-height: calc(100svh - var(--gutter) * 2 - var(--bar));
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Extra padding onderaan zodat de tekst optisch gecentreerd blijft boven de navigatiebalk */
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem) calc(var(--bar) + clamp(2rem, 4vw, 3rem));
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem);
+
+  /* Fallback voor oudere browsers */
+  color: var(--ink);
+  /* Berekent automatisch lichte of donkere tekst op basis van de helderheid (l) van --inhoud */
+  color: oklch(from var(--inhoud) clamp(0.15, (0.58 - l) * 1000, 0.96) 0.01 h);
 }
 
 /* Uitlijning & schaal van de tekst, in dezelfde lijn als .home-content */
@@ -552,17 +555,4 @@ main#inhoud:has(> .service-block) {
 
 .service-content p + p {
   margin-top: 1.1em;
-}
-
-/* Licht transparante navigatiebalk onderaan wanneer er schermblokken op de pagina staan */
-body:has(.service-block) .bottom-bar {
-  background: transparent;
-  pointer-events: none;
-}
-
-body:has(.service-block) .bottom-bar .bar {
-  pointer-events: auto;
-  background: color-mix(in srgb, var(--page) 78%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
