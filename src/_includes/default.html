@@ -36,11 +36,17 @@
 
   <!-- Kader: volledige hoogte, 1px lijn, afgeronde hoek. Kleur per pagina via "kleur:" -->
   <div class="kader">
-    <main id="inhoud">
+        <main id="inhoud">
       {%- if blokken and blokken.size > 0 %}
         {%- for blok in blokken %}
           {%- assign bk = kleuren[blok.kleur] %}
-          <section class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}; background-color: var(--inhoud); color: var(--ink);"{% endif %}>
+          {%- assign blok_id = blok.anker | default: "blok-" | append: forloop.index %}
+          {%- if blok.anker == blank %}
+            {%- assign blok_id = "blok-" | append: forloop.index %}
+          {%- else %}
+            {%- assign blok_id = blok.anker | slugify %}
+          {%- endif %}
+          <section id="{{ blok_id }}" class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}; background-color: var(--inhoud); color: var(--ink);"{% endif %}>
             <div class="service-content">
               {{ blok.inhoud | markdownify }}
             </div>
@@ -50,6 +56,7 @@
 
       {{ content }}
     </main>
+
 
         <!-- 
     <footer class="site-footer grid12">
