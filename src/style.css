@@ -3,9 +3,25 @@
    tekst blijft klein en ingetogen. Elke paginasoort heeft een eigen achtergrondtint.
    Geen webfonts, geen framework. */
 
+/* Lettertype Strawford: zet de bestanden (woff2) in src/fonts/ */
+@font-face {
+  font-family: "Strawford";
+  src: url("fonts/Strawford-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Strawford";
+  src: url("fonts/Strawford-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --home: #F4F2EC;
-  --project: #dde2da;
+  --project: #F4F2EC;
   --page: var(--home);
   --ink: #1a1b19;
   --line: #c6cac2;
@@ -14,7 +30,7 @@
   --tile-3: #bfc8cb;
   --tile-4: #cec5c8;
 
-  --font: "Helvetica Neue", Helvetica, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font: "Strawford", "Helvetica Neue", Helvetica, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   --text-sm: 0.875rem;
   --text-base: 1.0625rem;
@@ -392,3 +408,19 @@ a.ph:hover { opacity: 0.85; }
 
 /* Projectpagina: tekst onder de gegevens */
 .p-tekst { margin-top: 1.5rem; display: grid; gap: 1rem; }
+
+/* Inhoud: volledige hoogte (tussen kopbalk en onderbalk), kader van 1px met afgeronde hoek */
+main#inhoud {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--bar) * 2);
+  margin-inline: var(--gutter);
+  padding-bottom: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+main#inhoud > * { flex-shrink: 0; }
+main#inhoud > .p-hero { flex: 1 0 auto; min-height: 0; }
+/* Pagina's zonder rooster (homepagina, Hoe? Zo!): tekst niet tegen het kader */
+main#inhoud > :is(p, h1, h2, h3, ul, ol, .hero-banner, .home-content) { padding-inline: var(--gutter); }
+main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
