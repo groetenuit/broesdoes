@@ -1,7 +1,7 @@
 /* Studio Lijn, versie 2 — beeldgedreven portfolio.
    Layout: raster van 12 kolommen over de volle breedte; beelden staan versprongen,
    tekst blijft klein en ingetogen. Elke paginasoort heeft een eigen achtergrondtint.
-   Geen webfonts, geen framework. */
+*/
 
 /* Lettertype Strawford: zet de bestanden (woff2) in src/fonts/ */
 @font-face {
