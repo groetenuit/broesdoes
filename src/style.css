@@ -496,12 +496,17 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
   line-height: 1.5;
 }
 /* ==========================================================================
-   Schermvullende blokken (o.a. Services & Home) binnen .kader
+   Schermvullende blokken (o.a. Services & Home) binnen vast .kader
    ========================================================================== */
 
-/* Clip de gekleurde blokken netjes binnen de afgeronde hoeken van het kader */
-.kader {
-  overflow: hidden;
+/* Kader blijft vast in beeld staan zodat de 1px-rand en afgeronde hoeken altijd zichtbaar zijn */
+.kader:has(.service-block) {
+  height: calc(100svh - var(--gutter) * 2);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0;
+  scroll-snap-type: y proximity; /* Subtiel vastklikken bij het scrollen */
+  scroll-behavior: smooth;
 }
 
 /* Verwijder de extra witruimte onderaan main als er alleen schermblokken staan */
@@ -510,12 +515,13 @@ main#inhoud:has(> .service-block):not(:has(> :not(.service-block))) {
 }
 
 .service-block {
-  /* Vult precies de zichtbare hoogte tussen de bovenrand van .kader en de bovenkant van .bottom-bar */
-  min-height: calc(100svh - var(--gutter) * 2 - var(--bar));
+  min-height: 100%; /* Vult het volledige kader, inclusief achter de transparante balk */
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem);
+  /* Extra padding onderaan zodat de tekst optisch gecentreerd blijft boven de navigatiebalk */
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem) calc(var(--bar) + clamp(2.5rem, 5vw, 4rem));
 }
 
 /* Uitlijning & schaal van de tekst, in dezelfde lijn als .home-content */
@@ -542,4 +548,15 @@ main#inhoud:has(> .service-block):not(:has(> :not(.service-block))) {
   margin-top: 1.1em;
 }
 
+/* Licht transparante navigatiebalk onderaan wanneer er schermblokken op de pagina staan */
+body:has(.service-block) .bottom-bar {
+  background: transparent;
+  pointer-events: none;
+}
 
+body:has(.service-block) .bottom-bar .bar {
+  pointer-events: auto;
+  background: color-mix(in srgb, var(--page) 78%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
