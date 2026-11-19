@@ -5,6 +5,13 @@
 
 /* Lettertype Strawford: zet de bestanden (woff2) in src/fonts/ */
 @font-face {
+  font-family: "Brockmann";
+  src: url("fonts/brockmann-medium-webfont.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "Alcyone";
   src: url("fonts/Alcyone-Medium.woff2") format("woff2");
   font-weight: 400 500;
@@ -54,7 +61,7 @@
   --tile-3: #bfc8cb;
   --tile-4: #cec5c8;
 
-  --font: "Alcyone", "Strawford", "Helvetica Neue", Helvetica, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font: "Brockmann", "Alcyone", "Strawford", "Helvetica Neue", Helvetica, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   --text-sm: 0.875rem;
   --text-base: 1.0625rem;
