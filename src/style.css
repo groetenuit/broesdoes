@@ -504,12 +504,12 @@ main#inhoud > :first-child:not(.grid12):not(section) { padding-top: 1rem; }
   height: calc(100svh - var(--gutter) * 2);
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-snap-type: y proximity; /* Subtiel vastklikken bij het scrollen */
+  scroll-snap-type: y mandatory; /* Klikt elk gekleurd blok altijd volledig op zijn plek */
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Verbergt schuifbalk in Firefox zodat de 1px-rand strak blijft */
+  scrollbar-width: none;
 }
 .kader:has(.service-block)::-webkit-scrollbar {
-  display: none; /* Verbergt schuifbalk in Chrome/Safari/Edge */
+  display: none;
 }
 
 /* Voorkom dat flexbox de hoogte van de blokken oprekt */
@@ -519,21 +519,20 @@ main#inhoud:has(> .service-block) {
 }
 
 .service-block {
-  /* Vult precies het zichtbare kader boven de egale navigatiebalk */
+  /* Vult precies het zichtbare kader boven de navigatiebalk */
   min-height: calc(100svh - var(--gutter) * 2 - var(--bar));
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem);
 
-  /* Fallback voor oudere browsers */
+  /* Automatisch contrast voor typografie op basis van de achtergrondkleur */
   color: var(--ink);
-  /* Berekent automatisch lichte of donkere tekst op basis van de helderheid (l) van --inhoud */
   color: oklch(from var(--inhoud) clamp(0.15, (0.58 - l) * 1000, 0.96) 0.01 h);
 }
 
-/* Uitlijning & schaal van de tekst, in dezelfde lijn als .home-content */
 .service-content {
   max-width: 800px;
   width: 100%;
@@ -556,8 +555,18 @@ main#inhoud:has(> .service-block) {
 .service-content p + p {
   margin-top: 1.1em;
 }
-/* Vloeiende kleurovergang en automatisch contrast voor de onderste navigatiebalk */
+
+/* Meekleurende navigatiebalk onderaan met automatisch contrast voor tekst, lijn én logo */
 body:has(.service-block) .bottom-bar .bar {
-  transition: background-color 0.35s ease, color 0.35s ease;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
   color: oklch(from var(--inhoud, var(--page)) clamp(0.15, (0.58 - l) * 1000, 0.96) 0.01 h);
+  border-top-color: color-mix(in srgb, currentColor 25%, transparent);
+}
+
+body:has(.service-block) .bottom-bar .bar .custom-logo {
+  transition: filter 0.35s ease;
+}
+
+body:has(.service-block) .bottom-bar .bar.is-donker .custom-logo {
+  filter: invert(1) brightness(1.1);
 }
