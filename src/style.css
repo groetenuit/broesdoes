@@ -90,7 +90,7 @@
 
 body {
   margin: 0;
-  background: var(--page);
+  background: var(--inhoud);
   color: var(--ink);
   font: 400 var(--text-base)/1.4 var(--font);
   -webkit-font-smoothing: antialiased;
