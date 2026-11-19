@@ -16,14 +16,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("project", "project.html");
   eleventyConfig.addLayoutAlias("contact-layout", "contact-layout.html");
 
-  // Versleutelt e-mailadressen automatisch naar HTML-entities tijdens de build
-  eleventyConfig.addTransform("obfuscate-emails", function(content) {
-    if ((this.page.outputPath || "").endsWith(".html")) {
-      return content.replace(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi, (email) => {
-        return email.split('').map(char => `&#${char.charCodeAt(0)};`).join('');
-      });
-    }
-    return content;
+  // Bouwt een veilige e-mail-link op (ook veilig in openbare GitHub-repositories)
+  eleventyConfig.addShortcode("veiligeMail", function (tekst, gebruiker, domein) {
+    const g = Buffer.from(gebruiker).toString("base64");
+    const d = Buffer.from(domein).toString("base64");
+    const js = `this.href='mailto:'+atob(this.dataset.u)+'@'+atob(this.dataset.d)`;
+    return `<a href="#contact" rel="nofollow" data-u="${g}" data-d="${d}" onmouseover="${js}" onclick="${js}">${tekst}</a>`;
   });
 
   return {
