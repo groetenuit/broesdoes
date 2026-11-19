@@ -24,6 +24,14 @@ export default function (eleventyConfig) {
     return `<a href="#contact" rel="nofollow" data-u="${g}" data-d="${d}" onmouseover="${js}" onclick="${js}">${tekst}</a>`;
   });
 
+  // Bouwt een veilige telefoon-link op (ook veilig in openbare GitHub-repositories)
+  eleventyConfig.addShortcode("veiligeTel", function (tekst, landcode, nummer) {
+    const l = Buffer.from(landcode).toString("base64");
+    const n = Buffer.from(nummer).toString("base64");
+    const js = `this.href='tel:'+atob(this.dataset.l)+atob(this.dataset.n)`;
+    return `<a href="#contact" rel="nofollow" data-l="${l}" data-n="${n}" onmouseover="${js}" onclick="${js}">${tekst}</a>`;
+  });
+
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     pathPrefix,
