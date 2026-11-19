@@ -16,13 +16,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("project", "project.html");
   eleventyConfig.addLayoutAlias("contact-layout", "contact-layout.html");
 
-  return {
-    dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
-    pathPrefix,
-    markdownTemplateEngine: "liquid",
-    htmlTemplateEngine: "liquid",
-  };
-}
   // Versleutelt e-mailadressen automatisch naar HTML-entities tijdens de build
   eleventyConfig.addTransform("obfuscate-emails", function(content) {
     if ((this.page.outputPath || "").endsWith(".html")) {
@@ -32,3 +25,11 @@ export default function (eleventyConfig) {
     }
     return content;
   });
+
+  return {
+    dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
+    pathPrefix,
+    markdownTemplateEngine: "liquid",
+    htmlTemplateEngine: "liquid",
+  };
+}
