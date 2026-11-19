@@ -7,4 +7,4 @@ og_image: /images/portret-hond-billie.webp
 ---
 # Contact
 
-Ik ben Kris, grafisch ontwerper. Ik werk vanuit mijn hometown Dendermonde, het bruisende New York van de Scheldevallei. Desondanks is contacteren heel eenvoudig. Dat kan via [mail](mailto:hallo@groetenuitdendermonde.be) of via [telefoon](tel:+32498303904).
+Ik ben Kris, grafisch ontwerper. Ik werk vanuit mijn hometown Dendermonde, het bruisende New York van de Scheldevallei. Desondanks is contacteren heel eenvoudig. Dat kan via {% veiligeMail "mail", "hallo", "groetenuitdendermonde.be" %} of via [telefoon](tel:+ 32498303904).
