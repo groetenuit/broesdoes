@@ -1,3 +1,9 @@
+---
+title: Voorwaarden
+description: Algemene voorwaarden
+layout: contact-layout
+kleur: Rood
+---
 Verkoopsvoorwaarden
 Groeten uit Dendermonde is een merk van First Moon Flights Club bv (Kalendijk 21, 9200 Dendermonde met ondernemingsnummer BE 0767.365.119).
 Algemene bepalingen
