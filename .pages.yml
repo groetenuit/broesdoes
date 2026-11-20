@@ -26,7 +26,7 @@ content:
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: metatitle, label: Meta title, type: string, required: true, options: { maxlength: 60 } }
-      - { name: meta description, label: Meta Description, type: string, required: true, options: { maxlength: 160 } }
+      - { name: description, label: Meta Description, type: string, required: true, options: { maxlength: 160 } }
       - { name: layout, label: Layout, type: string, default: home, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
@@ -39,8 +39,8 @@ content:
     path: src/services.md
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
-      - { name: metatitle, label: Meta title, type: string, required: true, options: { maxlength: 60 } }
-      - { name: meta description, label: Meta Description, type: string, required: true, options: { minlength: 50, maxlength: 160 } }
+      - { name: metatitle, label: Meta title, type: string, required: true }
+      - { name: description, label: Meta Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
@@ -53,8 +53,8 @@ content:
     path: src/contact.md
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
-      - { name: metatitle, label: Meta title, type: string, required: true, options: { maxlength: 60 } }
-      - { name: meta description, label: Meta Description, type: string, required: true, options: { minlength: 50, maxlength: 160 } }
+      - { name: metatitle, label: Meta title, type: string, required: true }
+      - { name: description, label: Meta Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: featured_image, label: Afbeelding (Linkerkolom), type: image }
@@ -67,8 +67,8 @@ content:
     path: src/voorwaarden.md
     fields:
       - { name: title, label: Pagina Titel, type: string, required: true }
-      - { name: metatitle, label: Meta title, type: string, required: true, options: { maxlength: 60 } }
-      - { name: meta description, label: Meta Description, type: string, required: true, options: { minlength: 50, maxlength: 160 } }
+      - { name: metatitle, label: Meta title, type: string, required: true }
+      - { name: description, label: Meta Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
       - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
@@ -81,9 +81,9 @@ content:
     path: src/werk
     filename: "{primary}.md"
     fields:
-      - { name: title, label: Project Titel, type: string, required: true }
-      - { name: metatitle, label: Meta title, type: string, required: true, options: { maxlength: 60 } }
-      - { name: meta description, label: Meta Description, type: string, required: true, options: { minlength: 50, maxlength: 160 } }
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: metatitle, label: Meta title, type: string, required: true }
+      - { name: description, label: Meta Description, type: string, required: true }
       - { name: project_year, label: Project Jaar (bijv. 2026), type: string }
       - { name: project_location, label: Plaats / Stad, type: string }
       - name: project_type
