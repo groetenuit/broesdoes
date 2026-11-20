@@ -6,6 +6,6 @@ kleur: Rood
 ---
 meta title: Logo, huisstijl en branding
 Webdesign
-Less is more. Zeker online. Een goede website is duidelijk, snel en toegankelijk voor iedereen.
+Less is more. Zeker online. Een goede website is duidelijk, toegankelijk en loopt als een tierelier.
 Ik ontwerp websites zonder poespas, maar mét pit.
-
+Zo doen we dat.
