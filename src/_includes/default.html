@@ -72,10 +72,16 @@
           -->
   </div>
 
-  <!-- Vaste navigatie onderaan. Het menu staat centraal in src/_data/nav.json -->
+   <!-- Vaste navigatie onderaan. Het menu staat centraal in src/_data/nav.json -->
+  {%- assign eerste_balk_bg = "" -%}
+  {%- assign eerste_kleur_naam = "" -%}
+  {%- if blokken and blokken.size > 0 -%}
+    {%- assign eerste_kleur_naam = blokken.first.kleur -%}
+    {%- assign eerste_balk_bg = kleuren[eerste_kleur_naam].bg -%}
+  {%- endif -%}
   <div class="bottom-bar">
-    <nav class="bar nav" aria-label="Hoofdmenu">
-      <a class="logo-a" href="{{ '/' | url }}">Groeten uit Dendermonde!</a>
+    <nav class="bar nav{% if eerste_kleur_naam == 'Donkerbruin' or eerste_kleur_naam == 'nacht' %} is-donker{% endif %}" aria-label="Hoofdmenu"{% if eerste_balk_bg != "" %} style="--inhoud: {{ eerste_balk_bg }};"{% endif %}>
+      <a class="logo-a" href="{{ '/' | url }}"><img width="249" height="56" src="{{ '/images/Broes-Does-animated-logo-2.svg' | url }}" class="custom-logo" alt="Broes does"></a>
       <ul>
         {%- for item in nav.hoofd %}
         <li><a href="{{ item.url | url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
@@ -83,38 +89,48 @@
       </ul>
     </nav>
   </div>
-   {%- if blokken and blokken.size > 0 %}
+
+  {%- if blokken and blokken.size > 0 %}
   <script>
-    // De navigatiebalk neemt de kleur van het zichtbare blok over
-    (() => {
-      const kader = document.querySelector('.kader');
-      const balk = document.querySelector('.bottom-bar .bar');
-      const blokken = [...document.querySelectorAll('.service-block')];
+    const kader = document.querySelector('.kader');
+    const balk = document.querySelector('.bottom-bar .bar');
+    const blokken = [...document.querySelectorAll('.service-block')];
+
+    function updateBalkKleur() {
       if (!kader || !balk || !blokken.length) return;
+      const kaderTop = kader.getBoundingClientRect().top;
 
-      function updateBalk() {
-        const kaderTop = kader.getBoundingClientRect().top;
-        // Het blok dat het dichtst bij de bovenkant van het kader staat
-        const actief = blokken.reduce((beste, blok) =>
-          Math.abs(blok.getBoundingClientRect().top - kaderTop) <
-          Math.abs(beste.getBoundingClientRect().top - kaderTop) ? blok : beste);
+      let actiefBlok = blokken[0];
+      let kleinsteAfstand = Infinity;
 
-        const stijl = getComputedStyle(actief);
-        const [r, g, b, a = 1] = (stijl.backgroundColor.match(/[\d.]+/g) || []).map(Number);
-        if (a === 0) {                       // blok zonder kleur: terug naar de standaard
-          balk.style.removeProperty('--inhoud');
-          balk.style.removeProperty('--ink');
-          balk.classList.remove('is-donker');
-          return;
+      for (const blok of blokken) {
+        const afstand = Math.abs(blok.getBoundingClientRect().top - kaderTop);
+        if (afstand < kleinsteAfstand) {
+          kleinsteAfstand = afstand;
+          actiefBlok = blok;
         }
-        balk.style.setProperty('--inhoud', stijl.backgroundColor);
-        balk.style.setProperty('--ink', stijl.color);
-        balk.classList.toggle('is-donker', (r * 299 + g * 587 + b * 114) / 1000 < 140);
       }
 
-      kader.addEventListener('scroll', updateBalk, { passive: true });
-      updateBalk();
-    })();
+      const bg = actiefBlok.style.getPropertyValue('--inhoud').trim();
+      if (bg) {
+        balk.style.setProperty('--inhoud', bg);
+        const hex = bg.replace('#', '');
+        if (hex.length === 6) {
+          const r = parseInt(hex.slice(0, 2), 16);
+          const g = parseInt(hex.slice(2, 4), 16);
+          const b = parseInt(hex.slice(4, 6), 16);
+          const isDonker = (r * 299 + g * 587 + b * 114) / 1000 < 140;
+          balk.classList.toggle('is-donker', isDonker);
+        }
+      }
+    }
+
+    if (kader && balk && blokken.length) {
+      updateBalkKleur();
+      // Activeer de vloeiende kleurovergang pas nadat de eerste weergave staat
+      requestAnimationFrame(() => balk.classList.add('is-ready'));
+      kader.addEventListener('scroll', updateBalkKleur, { passive: true });
+    }
   </script>
   {%- endif %}
 </body>
