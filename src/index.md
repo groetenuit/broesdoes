@@ -1,6 +1,8 @@
 ---
 title: Home
-description: Groeten uit Dendermonde
+metatitle: Concept en ontwerp
+meta description: Combinatie van passie en expertise om visuele identiteiten,
+  websites en campagnes te ontwerpen die creatief én effectief zijn.
 layout: home
 kleur: Rood
 ---
