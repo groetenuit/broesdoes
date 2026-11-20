@@ -2,7 +2,7 @@
 title: Services
 description: Grafisch ontwerp en webdesign
 layout: default
-kleur: lavendel
+kleur: Blauw
 og_image: /images/Screenshot 2026-11-07 at 15.46.15.png
 blokken:
   - kleur: Rood
