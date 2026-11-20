@@ -450,16 +450,19 @@ a.ph:hover { opacity: 0.85; }
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
 
-  #inhoud { view-transition-name: inhoud; }
+  .site-header { view-transition-name: kop; }
+  .bottom-bar { view-transition-name: balk; }
+  .kader { view-transition-name: kader; }
 
-  /* De achtergrondkleur loopt rustig over naar die van de nieuwe pagina */
+  /* Buitenkant en navigatiebalk blijven rotsvast staan */
   ::view-transition-old(root),
-  ::view-transition-new(root) { animation-duration: 0.5s; }
+  ::view-transition-new(root),
+  ::view-transition-old(balk),
+  ::view-transition-new(balk) { animation: none; }
 
-  /* Oude inhoud vervaagt en schuift iets omhoog, nieuwe inhoud schuift van onderen in */
-  ::view-transition-group(inhoud) { animation: none; }
-  ::view-transition-old(inhoud) { animation: inhoud-uit 0.25s ease-in both; }
-  ::view-transition-new(inhoud) { animation: inhoud-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+  /* Het volledige kader (inclusief 1px-rand en ronde hoeken) loopt zacht over */
+  ::view-transition-old(kader) { animation: inhoud-uit 0.2s ease both; }
+  ::view-transition-new(kader) { animation: inhoud-in 0.25s ease both; }
 
   /* Een projectbeeld groeit uit tot het hoofdbeeld van de projectpagina */
   ::view-transition-group(*.beeld) { animation-duration: 0.6s; animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1); }
@@ -467,8 +470,9 @@ a.ph:hover { opacity: 0.85; }
   ::view-transition-old(*.beeld),
   ::view-transition-new(*.beeld) { height: 100%; object-fit: cover; }
 }
-@keyframes inhoud-uit { to { opacity: 0; transform: translateY(-16px); } }
-@keyframes inhoud-in { from { opacity: 0; transform: translateY(48px); } }
+@keyframes inhoud-uit { to { opacity: 0; } }
+@keyframes inhoud-in { from { opacity: 0; } }
+
 
    /* Meekleurende navigatiebalk onderaan zonder vertraging/transitie */
 body:has(.service-block) .bottom-bar .bar {
