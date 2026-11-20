@@ -5,7 +5,7 @@ layout: default
 kleur: Roos
 og_image: /images/Screenshot 2026-11-07 at 15.46.15.png
 blokken:
-  - kleur: Rood
+  - kleur: Roos
     inhoud: >+
       # Grafisch ontwerp
 
