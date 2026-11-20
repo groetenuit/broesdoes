@@ -3,7 +3,7 @@
   "Donkerbruin": { "label": "Donkerbruin", "bg": "var(--donkerbruin)", "ink": "var(--wit)" },
   "Geel":        { "label": "Geel",        "bg": "var(--geel)",        "ink": "var(--zwart)" },
   "Roos":        { "label": "Roos",        "bg": "var(--roos)",        "ink": "var(--zwart)" },
-  "salie":       { "label": "Salie",       "bg": "var(--salie)",       "ink": "var(--zwart)" },
+  "Blauw":       { "label": "Blauw",       "bg": "var(--blauw)",       "ink": "var(--wit)" },
   "mist":        { "label": "Mist",        "bg": "var(--mist)",        "ink": "var(--zwart)" },
   "lavendel":    { "label": "Lavendel",    "bg": "var(--lavendel)",    "ink": "var(--zwart)" },
   "nacht":       { "label": "Nacht",       "bg": "var(--nacht)",       "ink": "var(--creme)" }
