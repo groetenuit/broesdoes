@@ -451,13 +451,12 @@ a.ph:hover { opacity: 0.85; }
 @keyframes inhoud-uit { to { opacity: 0; transform: translateY(-16px); } }
 @keyframes inhoud-in { from { opacity: 0; transform: translateY(48px); } }
 
-   /* Meekleurende navigatiebalk onderaan met automatisch contrast voor tekst, lijn én logo */
+   /* Meekleurende navigatiebalk onderaan zonder vertraging/transitie */
 body:has(.service-block) .bottom-bar .bar {
   color: oklch(from var(--inhoud, var(--page)) clamp(0.15, (0.58 - l) * 1000, 0.96) 0.01 h);
   border-top-color: color-mix(in srgb, currentColor 25%, transparent);
 }
 
-body:has(.service-block) .bottom-bar .bar.is-ready {
-  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+body:has(.service-block) .bottom-bar .bar.is-donker .custom-logo {
+  filter: invert(1) brightness(1.1);
 }
-
