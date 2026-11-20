@@ -1,10 +1,10 @@
 {
-  "Rood":     { "label": "Rood",     "bg": "#EA1F2D", "ink": "#481816" },
-  "Donkerbruin":     { "label": "Donkerbruin",     "bg": "#481816", "ink": "#fff" },
-  "Geel":     { "label": "Geel",     "bg": "#E9C926", "ink": "#1A1B19" },
-  "Roos":    { "label": "Roos",    "bg": "#EEDEC6", "ink": "#1A1B19" },
-  "salie":    { "label": "Salie",    "bg": "#D9E2D3", "ink": "#1A1B19" },
-  "mist":     { "label": "Mist",     "bg": "#D6E2E8", "ink": "#1A1B19" },
-  "lavendel": { "label": "Lavendel", "bg": "#E2DCEE", "ink": "#1A1B19" },
-  "nacht":    { "label": "Nacht",    "bg": "#1F211E", "ink": "#F4F2EC" }
+  "Rood":        { "label": "Rood",        "bg": "var(--rood)",        "ink": "var(--donkerbruin)" },
+  "Donkerbruin": { "label": "Donkerbruin", "bg": "var(--donkerbruin)", "ink": "var(--wit)" },
+  "Geel":        { "label": "Geel",        "bg": "var(--geel)",        "ink": "var(--zwart)" },
+  "Roos":        { "label": "Roos",        "bg": "var(--roos)",        "ink": "var(--zwart)" },
+  "salie":       { "label": "Salie",       "bg": "var(--salie)",       "ink": "var(--zwart)" },
+  "mist":        { "label": "Mist",        "bg": "var(--mist)",        "ink": "var(--zwart)" },
+  "lavendel":    { "label": "Lavendel",    "bg": "var(--lavendel)",    "ink": "var(--zwart)" },
+  "nacht":       { "label": "Nacht",       "bg": "var(--nacht)",       "ink": "var(--creme)" }
 }
