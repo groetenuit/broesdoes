@@ -58,6 +58,18 @@ content:
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
 
+  - name: voorwaarden
+    label: Voorwaarden
+    type: file
+    path: src/voorwaarden.md
+    fields:
+      - { name: title, label: Pagina Titel, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
+      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
+      - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
+      - { name: body, label: Inhoud, type: rich-text }
+
   # Portfolio: één bestand per project in src/werk
   - name: werk
     label: Mijn Werk / Projecten
