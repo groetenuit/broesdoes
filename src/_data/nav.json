@@ -1,8 +1,8 @@
 {
   "hoofd": [
-    { "label": "Portfolio", "url": "/portfolio/" }
+    { "label": "Portfolio", "url": "/portfolio/" },
     { "label": "Papier en pixels", "url": "/services/" },
-    { "label": "Contact", "url": "/contact/" },
+    { "label": "Contact", "url": "/contact/" }
   ],
   "voet": [
     { "label": "Algemene voorwaarden", "url": "/voorwaarden/" },
