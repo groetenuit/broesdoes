@@ -290,11 +290,15 @@ body:has(.service-block) .bar {
   @view-transition { navigation: auto; }
 
   .site-header { view-transition-name: kop; }
+  .bottom-bar { view-transition-name: balk; }
   main { view-transition-name: inhoud; }
 
-  /* De achtergrondkleur en navigatiebalk lopen synchroon over */
+  /* Geen vertraagde fade op de buitenkant en navigatiebalk */
   ::view-transition-old(root),
-  ::view-transition-new(root) { animation-duration: 0.35s; }
+  ::view-transition-new(root),
+  ::view-transition-old(balk),
+  ::view-transition-new(balk) { animation: none; }
+
 
 body:has(.service-block) .bar .custom-logo { transition: filter 0.35s ease; }
 body:has(.service-block) .bar.is-donker .custom-logo { filter: invert(1) brightness(1.1); }
