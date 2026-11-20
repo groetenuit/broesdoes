@@ -46,3 +46,8 @@ blokken:
 
       Ik ontwerp websites zonder poespas, maar mét pit.
 ---
+Ik ben Kris, ontwerper. In een vorig leven was ik founding father van [Omygod](https://omygod.be/). Na ruim 24 jaar besloot ik mijn carrière een andere wending te geven met minder moeten en meer mogen. Vanuit die optiek heb ik Groeten uit Dendermonde opgestart, een grafisch ontwerpbureau waar fijne opdrachten en het uitwerken van eigen ideeën centraal staan.
+
+## Made in Dendermonde
+
+Ik hou van het ontwerpen van [logo's](https://groetenuitdendermonde.be/logo-en-huisstijl/), [huisstijlen](https://groetenuitdendermonde.be/logo-en-huisstijl/), [onberispelijke bladspiegels](https://groetenuitdendermonde.be/grafisch-ontwerp-made-in-dendermonde/) en [toegankelijke websites](https://groetenuitdendermonde.be/webdesign-en-webontwikkeling/). Alles wordt in Dendermonde gemaakt. Zo ben je absoluut zeker van alle kwaliteitsvereisten én dat de productie in de beste omstandigheden is gebeurd.
