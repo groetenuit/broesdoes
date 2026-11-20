@@ -1,7 +1,8 @@
 ---
-title: Webdesign & ontwikkeling
-project_type: Eigen werk
-featured_image: /images/portret-hond-billie.webp
+description: Webdesign & ontwikkeling
+layout: contact-layout
+kleur: Rood
+og_image: /images/portret-hond-billie.webp
 ---
 Webdesign & ontwikkeling
 Less is more. Zeker online. Een goede website is duidelijk, toegankelijk en loopt als een tierelier.
