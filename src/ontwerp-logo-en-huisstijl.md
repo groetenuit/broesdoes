@@ -4,6 +4,7 @@ description: Ik ontwerp logo’s en huisstijlen die kloppen. In kleur, vorm én 
 layout: home
 kleur: Rood
 ---
+meta title: Logo, huisstijl en branding
 Logo en huisstijl
 Groeten uit Dendermonde ontwerpt met uiterste precisie logo’s en huisstijlen die kloppen. In kleur, vorm én gevoel, want een sterk merk onderscheidt zich met een sterke huisstijl.
 Drukwerk dat werkt.
