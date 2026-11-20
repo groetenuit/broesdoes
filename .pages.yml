@@ -13,7 +13,7 @@ components:
         collapsed: false
         summary: "{fields.kleur}"
     fields:
-      - { name: kleur, label: Achtergrondkleur, type: select, required: true, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+      - { name: kleur, label: Achtergrondkleur, type: select, required: true, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: anker, label: Anker-naam voor interne links (optioneel, bijv. logo of web), type: string }
       - { name: inhoud, label: Inhoud van het blok (gebruik Kop 1 of Kop 2 voor titels), type: rich-text, required: true }
 
@@ -27,7 +27,7 @@ content:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: home, hidden: true }
-      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: blokken, component: schermblokken }
       - { name: body, label: Extra Inhoud (optioneel), type: rich-text }
@@ -40,7 +40,7 @@ content:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: default, hidden: true }
-      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: blokken, component: schermblokken }
       - { name: body, label: Extra Inhoud (optioneel), type: rich-text }
@@ -53,7 +53,7 @@ content:
       - { name: title, label: Pagina Titel, type: string, required: true }
       - { name: description, label: Description, type: string, required: true }
       - { name: layout, label: Layout, type: string, default: contact-layout, hidden: true }
-      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: featured_image, label: Afbeelding (Linkerkolom), type: image }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Inhoud, type: rich-text }
@@ -74,7 +74,7 @@ content:
         required: true
         options:
           values: ["Campagne", "Editoriaal", "Eigen werk"]
-      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "salie", "mist", "lavendel", "nacht"] } }
+      - { name: kleur, label: Achtergrondkleur inhoud, type: select, options: { values: ["Rood", "Donkerbruin", "Geel", "Roos", "Blauw", "mist", "lavendel", "nacht"] } }
       - { name: featured_image, label: Project Afbeelding (Linkerkolom), type: image }
       - { name: og_image, label: Uitgelichte Afbeelding (Social Media - 1200x630), type: image }
       - { name: body, label: Project Omschrijving, type: rich-text }
