@@ -1,5 +1,5 @@
 ---
-title: Ontwerp logo en huisstijl
+title: Webdesign
 description: Webdesign en ontwikkeling van toegankelijke website
 layout: home
 kleur: Rood
