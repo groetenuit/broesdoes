@@ -1,5 +1,5 @@
 ---
-title: Papier & pixels
+title: Papier en pixels
 metatitle: Grafisch ontwerp en webdesign
 description: Ik ben Kris, grafisch ontwerper. Ik hou van logo’s, huisstijlen en
   onberispelijk zetwerk. Ik ben expert in toegankelijke documenten en
