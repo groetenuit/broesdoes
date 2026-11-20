@@ -32,6 +32,7 @@
 </head>
 {%- assign k = kleuren[kleur] %}
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}{% if k %} style="--inhoud: {{ k.bg }}; --ink: {{ k.ink }}"{% endif %}>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
 
   <!-- Kader: volledige hoogte, 1px lijn, afgeronde hoek. Kleur per pagina via "kleur:" -->
   <div class="kader">
@@ -39,13 +40,12 @@
       {%- if blokken and blokken.size > 0 %}
         {%- for blok in blokken %}
           {%- assign bk = kleuren[blok.kleur] %}
-          {%- assign blok_id = blok.anker | default: "blok-" | append: forloop.index %}
-          {%- if blok.anker == blank %}
-            {%- assign blok_id = "blok-" | append: forloop.index %}
-          {%- else %}
+          {%- if blok.anker and blok.anker != blank %}
             {%- assign blok_id = blok.anker | slugify %}
+          {%- else %}
+            {%- assign blok_id = "blok-" | append: forloop.index %}
           {%- endif %}
-          <section id="{{ blok_id }}" class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}; background-color: var(--inhoud); color: var(--ink);"{% endif %}>
+          <section id="{{ blok_id }}" class="service-block"{% if bk %} style="--inhoud: {{ bk.bg }}; --ink: {{ bk.ink }}"{% endif %}>
             <div class="service-content">
               {{ blok.inhoud | markdownify }}
             </div>
@@ -85,47 +85,37 @@
   </div>
    {%- if blokken and blokken.size > 0 %}
   <script>
-    const kader = document.querySelector('.kader');
-    const balk = document.querySelector('.bottom-bar .bar');
-    const blokken = [...document.querySelectorAll('.service-block')];
-
-    function updateBalkKleur() {
+    // De navigatiebalk neemt de kleur van het zichtbare blok over
+    (() => {
+      const kader = document.querySelector('.kader');
+      const balk = document.querySelector('.bottom-bar .bar');
+      const blokken = [...document.querySelectorAll('.service-block')];
       if (!kader || !balk || !blokken.length) return;
-      const kaderTop = kader.getBoundingClientRect().top;
 
-      // Zoek het blok dat het dichtst bij de bovenkant van het kader staat
-      let actiefBlok = blokken[0];
-      let kleinsteAfstand = Infinity;
+      function updateBalk() {
+        const kaderTop = kader.getBoundingClientRect().top;
+        // Het blok dat het dichtst bij de bovenkant van het kader staat
+        const actief = blokken.reduce((beste, blok) =>
+          Math.abs(blok.getBoundingClientRect().top - kaderTop) <
+          Math.abs(beste.getBoundingClientRect().top - kaderTop) ? blok : beste);
 
-      for (const blok of blokken) {
-        const afstand = Math.abs(blok.getBoundingClientRect().top - kaderTop);
-        if (afstand < kleinsteAfstand) {
-          kleinsteAfstand = afstand;
-          actiefBlok = blok;
+        const stijl = getComputedStyle(actief);
+        const [r, g, b, a = 1] = (stijl.backgroundColor.match(/[\d.]+/g) || []).map(Number);
+        if (a === 0) {                       // blok zonder kleur: terug naar de standaard
+          balk.style.removeProperty('--inhoud');
+          balk.style.removeProperty('--ink');
+          balk.classList.remove('is-donker');
+          return;
         }
+        balk.style.setProperty('--inhoud', stijl.backgroundColor);
+        balk.style.setProperty('--ink', stijl.color);
+        balk.classList.toggle('is-donker', (r * 299 + g * 587 + b * 114) / 1000 < 140);
       }
 
-      const bg = actiefBlok.style.getPropertyValue('--inhoud').trim();
-      if (bg) {
-        balk.style.setProperty('--inhoud', bg);
-        const hex = bg.replace('#', '');
-        if (hex.length === 6) {
-          const r = parseInt(hex.slice(0, 2), 16);
-          const g = parseInt(hex.slice(2, 4), 16);
-          const b = parseInt(hex.slice(4, 6), 16);
-          const isDonker = (r * 299 + g * 587 + b * 114) / 1000 < 140;
-          balk.classList.toggle('is-donker', isDonker);
-        }
-      }
-    }
-
-    if (kader && balk && blokken.length) {
-      updateBalkKleur();
-      kader.addEventListener('scroll', updateBalkKleur, { passive: true });
-    }
+      kader.addEventListener('scroll', updateBalk, { passive: true });
+      updateBalk();
+    })();
   </script>
   {%- endif %}
 </body>
-
-
 </html>
