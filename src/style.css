@@ -161,14 +161,14 @@ h1, h2, h3 { font-weight: 500; margin: 0; font-size: inherit; text-wrap: balance
 .kader {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--gutter) - var(--onder));
-  min-height: calc(100dvh - var(--gutter) - var(--onder));
-  margin: var(--gutter) var(--gutter) var(--onder);
-  padding-bottom: var(--bar);            /* ruimte voor de vaste navigatie */
+  min-height: calc(100svh - var(--gutter) * 2);
+  margin: var(--gutter);
+  padding-bottom: var(--bar);
   border: 1px solid var(--kader-lijn);
-  border-radius: var(--radius);
+  border-radius: 12px;
   background: var(--inhoud, transparent);
   color: var(--ink);
+  overflow: hidden;
 }
 
 #inhoud { flex: 1 0 auto; display: flex; flex-direction: column; padding-bottom: 2rem; }
@@ -293,11 +293,26 @@ body:has(.service-block) .bar {
   .bottom-bar { view-transition-name: balk; }
   main { view-transition-name: inhoud; }
 
-  /* Geen vertraagde fade op de buitenkant en navigatiebalk */
+  /* Buitenkant en navigatiebalk blijven rotsvast staan */
   ::view-transition-old(root),
   ::view-transition-new(root),
   ::view-transition-old(balk),
   ::view-transition-new(balk) { animation: none; }
+
+  /* Inhoud loopt zacht over zonder buiten de ronde hoeken van het kader te schuiven */
+  ::view-transition-group(inhoud) { animation: none; }
+  ::view-transition-old(inhoud) { animation: inhoud-uit 0.2s ease both; }
+  ::view-transition-new(inhoud) { animation: inhoud-in 0.25s ease both; }
+
+  /* Een projectbeeld groeit uit tot het hoofdbeeld van de projectpagina */
+  ::view-transition-group(*.beeld) { animation-duration: 0.6s; animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1); }
+  ::view-transition-image-pair(*.beeld) { overflow: hidden; }
+  ::view-transition-old(*.beeld),
+  ::view-transition-new(*.beeld) { height: 100%; object-fit: cover; }
+}
+@keyframes inhoud-uit { to { opacity: 0; } }
+@keyframes inhoud-in { from { opacity: 0; } }
+
 
 
 body:has(.service-block) .bar .custom-logo { transition: filter 0.35s ease; }
