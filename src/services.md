@@ -1,6 +1,9 @@
 ---
-title: Services
-description: Grafisch ontwerp en webdesign
+title: Papier & pixels
+metatitle: Grafisch ontwerp voor print en web
+meta description: Jaarverslag of brochure, flyer of lookbook. Drukwerk is mijn
+  speeltuin. Met een zwak voor typografie en oog voor detail zorg ik dat papier
+  weer magisch voelt.
 layout: default
 kleur: Roos
 og_image: /images/Screenshot 2026-11-07 at 15.46.15.png
