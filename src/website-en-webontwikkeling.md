@@ -1,4 +1,9 @@
-
+---
+title: Webdesign en ontwikkeling van toegankelijke websites
+description: Less is more. Zeker online. Een goede website is duidelijk, snel & toegankelijk voor iedereen. Ik ontwerp sites zonder poespas, maar mét pit. I ❤️ webdesign.
+layout: home
+kleur: Rood
+---
 
 Webdesign & ontwikkeling
 Less is more. Zeker online. Een goede website is duidelijk, toegankelijk en loopt als een tierelier.
